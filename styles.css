@@ -1,0 +1,61 @@
+/* Style the tab buttons */
+.tablink {
+    background-color: #555;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 16.66%;  /* Adjust width to fit 6 buttons evenly */
+    float: left;
+}
+
+/* Ensure the entire viewport is filled */
+.allContent {
+    margin: auto;
+    width: 640px;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column; /* Flexbox layout for column */
+    justify-content: space-between; /* Ensure buttons are at the bottom */
+    background-color: powderblue;
+    position: relative;
+}
+
+.everything {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Add class to wrap the buttons */
+.tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: #555;
+    height: 50px; /* Keep buttons height fixed */
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Style each tab content individually */ 
+#London {background-color: red;}
+#Paris {background-color: green;}
+#Tokyo {background-color: blue;}
+#Oslo {background-color: orange;}
+#Berlin {background-color: purple;}
+#Rome {background-color: brown;}
