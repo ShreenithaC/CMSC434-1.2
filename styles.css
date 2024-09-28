@@ -1,5 +1,9 @@
-/* Style the tab buttons */
-.tablink {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+   .tablink {
     background-color: #555;
     color: white;
     border: none;
@@ -7,12 +11,10 @@
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
-    width: 16.66%;  /* Adjust width to fit 6 buttons evenly */
+    width: 16.66%; /* Adjust width to fit 6 buttons evenly */
     float: left;
-}
-
-/* Ensure the entire viewport is filled */
-.allContent {
+  }
+   .allContent {
     margin: auto;
     width: 640px;
     height: 100vh; /* Full viewport height */
@@ -21,41 +23,77 @@
     justify-content: space-between; /* Ensure buttons are at the bottom */
     background-color: powderblue;
     position: relative;
-}
-
-.everything {
+  }
+   .everything {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-}
-
-/* Add class to wrap the buttons */
-.tab-buttons {
+  }
+   .tab-buttons {
     display: flex;
     justify-content: space-between;
     background-color: #555;
-    height: 50px; /* Keep buttons height fixed */
-}
-
-/* Change background color of buttons on hover */
-.tablink:hover {
+    height: 50px;
+  }
+   .tablink:hover {
     background-color: #777;
-}
-
-/* Set default styles for tab content */
-.tabcontent {
-    color: white;
+  }
+   .tabcontent {
     display: none;
+    flex-grow: 1;
+    overflow-y: auto; /* Ensure the content inside the tab is scrollable */
     padding: 20px;
     text-align: center;
-    flex-grow: 1;
-}
-
-/* Style each tab content individually */ 
-#London {background-color: red;}
-#Paris {background-color: green;}
-#Tokyo {background-color: blue;}
-#Oslo {background-color: orange;}
-#Berlin {background-color: purple;}
-#Rome {background-color: brown;}
+    background-color: #fdd;
+  }
+   /* Scrollable content for Tab 1 */
+  .scrollable-content {
+    max-height: 80vh; /* Adjust the height to control the scroll area */
+    overflow-y: auto;
+  }
+   /* Style the form elements in Tab 2 */
+  #Choices form {
+    text-align: left;
+    margin: 20px;
+  }
+   #Choices label {
+    font-weight: bold;
+  }
+   /* Style the ToDo list in Tab 3 */
+  #ToDo input[type="text"] {
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+   #ToDo button {
+    padding: 5px 10px;
+  }
+   #ToDo ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+   #ToDo ul li {
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+   #ToDo ul li .completed {
+    text-decoration: line-through;
+    color: grey;
+  }
+   #ToDo ul li button {
+    background-color: transparent;
+    border: none;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+  }
+   #ToDo ul li button:hover {
+    color: red;
+  }
+  
+ 

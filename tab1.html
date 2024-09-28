@@ -1,74 +1,166 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="stylesheet" href="styles.css"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="styles.css">
+ <title>Tabs Example</title>
 </head>
-
 <body>
-<div id="wrapped" class="allContent">
-  <div class="everything">
-    <div id="London" class="tabcontent">
-      <h1>London</h1>
-      <p>London is the capital city of England.</p>
-    </div>
+ <div id="wrapped" class="allContent">
+   <div class="everything">
     
-    <div id="Paris" class="tabcontent">
-      <h1>Paris</h1>
-      <p>Paris is the capital of France.</p> 
-    </div>
-    
-    <div id="Tokyo" class="tabcontent">
-      <h1>Tokyo</h1>
-      <p>Tokyo is the capital of Japan.</p>
-    </div>
-    
-    <div id="Oslo" class="tabcontent">
-      <h1>Oslo</h1>
-      <p>Oslo is the capital of Norway.</p>
-    </div>
+     <!-- Tab 1: Text -->
+     <div id="Text" class="tabcontent">
+       <div class="scrollable-content">
+         <h1>Text</h1>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <p>We love CMSC434!!!!</p>
+         <!-- Add more long content as needed -->
+       </div>
+     </div>
 
-    <div id="Berlin" class="tabcontent">
-      <h1>Berlin</h1>
-      <p>Berlin is the capital of Germany.</p>
-    </div>
 
-    <div id="Rome" class="tabcontent">
-      <h1>Rome</h1>
-      <p>Rome is the capital of Italy.</p>
-    </div>
-  
-    <!-- Buttons -->
-    <div class="tab-buttons">
-      <button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen">London</button>
-      <button class="tablink" onclick="openCity('Paris', this, 'green')">Paris</button>
-      <button class="tablink" onclick="openCity('Tokyo', this, 'blue')">Tokyo</button>
-      <button class="tablink" onclick="openCity('Oslo', this, 'orange')">Oslo</button>
-      <button class="tablink" onclick="openCity('Berlin', this, 'purple')">Berlin</button>
-      <button class="tablink" onclick="openCity('Rome', this, 'brown')">Rome</button>
-    </div>
-  </div>
-</div>
+     <!-- Tab 2: Choices -->
+     <div id="Choices" class="tabcontent">
+       <h1>Choices</h1>
+       <form>
+         <label for="hatColor1">Hat color #1:</label><br>
+         <input type="radio" id="redHat" name="hatColor1" value="Red" checked> Red<br>
+         <input type="radio" id="blueHat" name="hatColor1" value="Blue"> Blue<br><br>
+        
+         <label for="hatColor2">Hat color #2:</label><br>
+         <select id="hatColor2">
+           <option value="Red">Red</option>
+           <option value="Blue">Blue</option>
+           <option value="Green">Green</option>
+         </select><br><br>
 
-<script>
-  function openCity(cityName, elmnt, color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
 
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "";
-    }
+         <button type="button" onclick="displayChoice()">Print something based on above choices...</button>
+       </form>
+       <p id="choiceResult"></p>
+     </div>
 
-    document.getElementById(cityName).style.display = "block";
-    elmnt.style.backgroundColor = color;
-  }
 
-  document.getElementById("defaultOpen").click();
-</script>
+     <!-- Tab 3: ToDo -->
+     <div id="ToDo" class="tabcontent">
+       <h1>To Do</h1>
+       <input type="text" id="newItem" placeholder="New entry...">
+       <button onclick="addItem()">Add</button>
+       <ul id="todoList">
+         <li><span class="completed">Register for classes</span> <button onclick="removeItem(this)">×</button></li>
+         <li><span class="completed">Pay tuition and fees</span> <button onclick="removeItem(this)">×</button></li>
+       </ul>
+     </div>
+
+
+     <!-- Other Tabs Placeholders -->
+     <div id="Profile" class="tabcontent">
+       <h1>Profile</h1>
+       <p>Profile tab content.</p>
+     </div>
+
+
+     <div id="Colors" class="tabcontent">
+       <h1>Colors</h1>
+       <p>Colors tab content.</p>
+     </div>
+
+
+     <div id="LR" class="tabcontent">
+       <h1>LR</h1>
+       <p>LR tab content.</p>
+     </div>
+
+
+     <!-- Buttons -->
+     <div class="tab-buttons">
+       <button class="tablink" onclick="openTab('Text', this, 'red')" id="defaultOpen">Text</button>
+       <button class="tablink" onclick="openTab('Choices', this, 'green')">Choices</button>
+       <button class="tablink" onclick="openTab('ToDo', this, 'blue')">ToDo</button>
+       <button class="tablink" onclick="openTab('Profile', this, 'orange')">Profile</button>
+       <button class="tablink" onclick="openTab('Colors', this, 'purple')">Colors</button>
+       <button class="tablink" onclick="openTab('LR', this, 'brown')">LR</button>
+     </div>
+   </div>
+ </div>
+
+
+ <script>
+   // Switch between tabs
+   function openTab(tabName, elmnt, color) {
+     var i, tabcontent, tablinks;
+     tabcontent = document.getElementsByClassName("tabcontent");
+     for (i = 0; i < tabcontent.length; i++) {
+       tabcontent[i].style.display = "none";
+     }
+     tablinks = document.getElementsByClassName("tablink");
+     for (i = 0; i < tablinks.length; i++) {
+       tablinks[i].style.backgroundColor = "";
+     }
+     document.getElementById(tabName).style.display = "block";
+     elmnt.style.backgroundColor = color;
+   }
+
+
+   // Open the default tab
+   document.getElementById("defaultOpen").click();
+
+
+   // Function for displaying choice results in Tab 2
+   function displayChoice() {
+     const hatColor1 = document.querySelector('input[name="hatColor1"]:checked').value;
+     const hatColor2 = document.getElementById("hatColor2").value;
+     document.getElementById("choiceResult").innerText = `Hat color #1: ${hatColor1}, Hat color #2: ${hatColor2}`;
+   }
+
+
+   // Function to add new items in the ToDo list
+   function addItem() {
+     const newItemText = document.getElementById("newItem").value;
+     if (newItemText.trim() !== "") {
+       const li = document.createElement("li");
+       li.innerHTML = `<span>${newItemText}</span> <button onclick="removeItem(this)">×</button>`;
+       li.querySelector("span").onclick = function() {
+         this.classList.toggle("completed");
+       };
+       document.getElementById("todoList").appendChild(li);
+       document.getElementById("newItem").value = ''; // Clear input field
+     }
+   }
+
+
+   // Function to remove items from the ToDo list
+   function removeItem(element) {
+     element.parentElement.remove();
+   }
+ </script>
 </body>
 </html>
+
+
