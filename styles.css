@@ -95,5 +95,20 @@ body {
    #ToDo ul li button:hover {
     color: red;
   }
+
+  /* Style for the Colors tab */
+    .yellow-text {
+    color: yellow;
+    background-color: black;
+    padding: 10px;
+    margin: 0;
+    }
+  
+  .purple-text {
+    color: purple;
+    background-color: yellow;
+    padding: 10px;
+    margin: 0;
+  }
   
  
