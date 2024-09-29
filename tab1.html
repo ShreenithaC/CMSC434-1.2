@@ -79,18 +79,37 @@
      </div>
 
 
-     <!-- Other Tabs Placeholders -->
+     <!--Tab 4: Profile-->
      <div id="Profile" class="tabcontent">
        <h1>Profile</h1>
-       <p>Profile tab content.</p>
+       <img src="turtle.png" alt="Clickable Image" id="clickable-image" width="200" style="cursor: pointer;">
+    
+       <div class="hidden-text" id="hidden-text" style="display: none;">
+           <button class="close-btn" id="close-btn">&times;</button>
+           <p>Hello.</p>
+       </div>
+   
+       <script>
+           const image = document.getElementById('clickable-image');
+           const hiddenText = document.getElementById('hidden-text');
+           const closeBtn = document.getElementById('close-btn');
+   
+           image.addEventListener('click', () => {
+               hiddenText.style.display = 'block';
+           });
+   
+           closeBtn.addEventListener('click', () => {
+               hiddenText.style.display = 'none';
+           });
+       </script>
      </div>
 
 
      <!-- Tab 5: Colors -->
      <div id="Colors" class="tabcontent">
       <h1>Colors</h1>
-      <p class="yellow-text">Yellow on Black.</p>
-      <p class="purple-text">Purple on Yellow.</p>
+      <p class="yellow-text">Hello There.</p>
+      <p class="purple-text">Hi Again.</p>
     </div>
 
 
