@@ -1,3 +1,12 @@
+/* This link was used to create the general styling of the webpage https://www.w3schools.com/howto/howto_js_tab_header.asp */
+/* This code was used for the css of tab 2. https://www.w3schools.com/howto/howto_js_todolist.asp */
+/*This code was used for the css tab 3. https://www.w3schools.com/howto/howto_js_todolist.asp*/
+
+
+
+
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,16 +20,16 @@ body {
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
-    width: 16.66%; /* Adjust width to fit 6 buttons evenly */
+    width: 16.66%;
     float: left;
   }
    .allContent {
     margin: auto;
     width: 640px;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* Flexbox layout for column */
-    justify-content: space-between; /* Ensure buttons are at the bottom */
+    flex-direction: column;
+    justify-content: space-between;
     background-color: powderblue;
     position: relative;
   }
@@ -38,20 +47,20 @@ body {
    .tablink:hover {
     background-color: #777;
   }
-   .tabcontent {
+  .tabcontent {
     display: none;
     flex-grow: 1;
-    overflow-y: auto; /* Ensure the content inside the tab is scrollable */
-    padding: 20px;
+    padding: 0;
     text-align: center;
     background-color: #fdd;
-  }
-   /* Scrollable content for Tab 1 */
-  .scrollable-content {
-    max-height: 80vh; /* Adjust the height to control the scroll area */
+    height: calc(100vh - 50px);
     overflow-y: auto;
-  }
-   /* Style the form elements in Tab 2 */
+ }
+ .scrollable-content {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100% - 40px);
+ }
   #Choices form {
     text-align: left;
     margin: 20px;
@@ -59,8 +68,7 @@ body {
    #Choices label {
     font-weight: bold;
   }
-   /* Style the ToDo list in Tab 3 */
-  #ToDo input[type="text"] {
+   #ToDo input[type="text"] {
     padding: 5px;
     font-size: 14px;
     margin-right: 10px;
@@ -95,27 +103,23 @@ body {
    #ToDo ul li button:hover {
     color: red;
   }
-
   /* Style for the Colors tab */
-    .yellow-text {
+    .yellow {
     color: yellow;
     background-color: black;
-    padding: 10px;
+    padding: 11px;
     margin: 0;
     }
-  
-  .purple-text {
+   .purple {
     color: purple;
     background-color: yellow;
-    padding: 10px;
+    padding: 11px;
     margin: 0;
   }
-
-  /* Style for the LR tab */
-.down-here {
-    position: absolute; 
-    bottom: 50px; /* Distance from the bottom */
-    right: 10px; /* Distance from the right */
+ .down-here {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
   }
-  
+ 
  
