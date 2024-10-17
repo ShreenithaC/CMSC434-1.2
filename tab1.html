@@ -11,47 +11,78 @@
  <div class="everything">
    <!--W3 Schools' code was used to create the general layout and buttons on the bottom. https://www.w3schools.com/howto/howto_js_tab_header.asp-->
 
-
+   <!-- Updated Tab 1: Text -->
    <div id="Text" class="tabcontent">
-     <div class="scrollable-content">
-       <h1>Text</h1>
-       <p>We love CMSC434!!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-       <p>We love CMSC434!!!!</p>
-     </div>
-   </div>
+    <div class="scrollable-content">
+        <!-- Top Header with Username and Search Icon -->
+        <div class="header">
+            <h1 class="greeting">Hey Andy</h1>
+            <span class="search-icon">&#x1F50D;</span> <!-- Unicode for magnifying glass -->
+        </div>
+        
+        <!-- Section: Today's Goals with Box -->
+        <div class="section goals-box">
+            <h2>Today's Goals</h2>
+            <ul class="goals-list">
+                <li>Complete a calisthenics workout</li>
+                <li>Eat 50 grams of protein</li>
+                <li>Create new goal</li>
+            </ul>
+        </div>
+        
+        <!-- Section: Articles for You with Images -->
+        <div class="section articles">
+            <h2>Articles for You</h2>
+            <div class="article-grid">
+                <div class="article-item">
+                    <a href="#">
+                        <img src="path-to-your-image-1.jpg" alt="How to run a 5K" class="article-image">
+                        How to run a 5K <span class="link-icon">&#x21E8;</span>
+                    </a>
+                </div>
+                <div class="article-item">
+                    <a href="#">
+                        <img src="path-to-your-image-2.jpg" alt="Fasted Cardio" class="article-image">
+                        Fasted Cardio <span class="link-icon">&#x21E8;</span>
+                    </a>
+                </div>
+                <div class="article-item">
+                    <a href="#">
+                        <img src="path-to-your-image-3.jpg" alt="Journaling" class="article-image">
+                        Journaling <span class="link-icon">&#x21E8;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-
-
-
-
+        <!-- Section: Recipes for You with Images -->
+        <div class="section recipes">
+            <h2>Recipes for You</h2>
+            <div class="recipe-grid">
+                <div class="recipe-item">
+                    <a href="#">
+                        <img src="path-to-your-image-4.jpg" alt="Protein-filled meals" class="recipe-image">
+                        Protein-filled meals <span class="link-icon">&#x21E8;</span>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="#">
+                        <img src="path-to-your-image-5.jpg" alt="Chicken Parmesan" class="recipe-image">
+                        Chicken Parmesan <span class="link-icon">&#x21E8;</span>
+                    </a>
+                </div>
+                <div class="recipe-item">
+                    <a href="#">
+                        <img src="path-to-your-image-6.jpg" alt="Vegetable Stir Fry" class="recipe-image">
+                        Vegetable Stir Fry <span class="link-icon">&#x21E8;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
    <!-- This code was used for tab 2. https://www.w3schools.com/howto/howto_js_todolist.asp -->
-
-
    <!-- Tab 2: Choices -->
    <div id="Choices" class="tabcontent">
      <h1>Choices</h1>
@@ -67,24 +98,11 @@
          <option value="Green">Green</option>
        </select><br><br>
 
-
-
-
-
-
-
-
        <button type="button" onclick="displayChoice()">Print something based on above choices...</button>
      </form>
      <p id="choiceResult"></p>
    </div>
 
-
-
-
-
-
-<!-- This code was used to create tab 3. https://www.w3schools.com/howto/howto_js_todolist.asp-->
    <!-- Tab 3: ToDo -->
    <div id="ToDo" class="tabcontent">
      <h1>To Do</h1>
@@ -95,13 +113,6 @@
        <li><span class="completed">Pay tuition and fees</span> <button onclick="removeItem(this)">×</button></li>
      </ul>
    </div>
-
-
-
-
-
-
-
 
    <!--Tab 4: Profile-->
    <div id="Profile" class="tabcontent">
@@ -124,13 +135,6 @@
      </script>
    </div>
 
-
-
-
-
-
-
-
    <!-- Tab 5: Colors -->
    <div id="Colors" class="tabcontent">
     <h1>Colors</h1>
@@ -138,28 +142,11 @@
     <p class="purple">Hi Again.</p>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
    <!-- Tab 6: LR -->
   <div id="LR" class="tabcontent">
     <h1>LR</h1>
     <p class="down-here">Down Here</p>
   </div>
-
-
-   <!--Continuation of the first original link. https://www.w3schools.com/howto/howto_js_tab_header.asp-->
-
-
-
 
     <!-- Buttons -->
     <div class="tab-buttons">
@@ -174,9 +161,6 @@
 </div>
 <script>
 
-
-
-
   function openTab(tabName, elmnt) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -185,27 +169,18 @@
     }
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "";
+      tablinks[i].style.backgroundColor = "black";
     }
     document.getElementById(tabName).style.display = "block";
   }
 
-
-
-
  document.getElementById("defaultOpen").click();
-
-
-
 
  function displayChoice() {
    const hatColor1 = document.querySelector('input[name="hatColor1"]:checked').value;
    const hatColor2 = document.getElementById("hatColor2").value;
    document.getElementById("choiceResult").innerText = `Hat color #1: ${hatColor1}, Hat color #2: ${hatColor2}`;
  }
-
-
-
 
  function addItem() {
    const newItemText = document.getElementById("newItem").value;
@@ -220,14 +195,9 @@
    }
  }
 
-
-
-
  function removeItem(element) {
    element.parentElement.remove();
  }
 </script>
 </body>
 </html>
-
-

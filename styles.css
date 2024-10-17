@@ -1,125 +1,226 @@
-/* This link was used to create the general styling of the webpage https://www.w3schools.com/howto/howto_js_tab_header.asp */
-/* This code was used for the css of tab 2. https://www.w3schools.com/howto/howto_js_todolist.asp */
-/*This code was used for the css tab 3. https://www.w3schools.com/howto/howto_js_todolist.asp*/
-
-
-
-
-
-
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-   .tablink {
-    background-color: #555;
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 16.66%;
-    float: left;
-  }
-   .allContent {
-    margin: auto;
-    width: 640px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: powderblue;
-    position: relative;
-  }
-   .everything {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-   .tab-buttons {
-    display: flex;
-    justify-content: space-between;
-    background-color: #555;
-    height: 50px;
-  }
-   .tablink:hover {
-    background-color: #777;
-  }
-  .tabcontent {
-    display: none;
-    flex-grow: 1;
-    padding: 0;
-    text-align: center;
-    background-color: #fdd;
-    height: calc(100vh - 50px);
-    overflow-y: auto;
- }
- .scrollable-content {
-    padding: 20px;
-    overflow-y: auto;
-    height: calc(100% - 40px);
- }
-  #Choices form {
-    text-align: left;
-    margin: 20px;
-  }
-   #Choices label {
-    font-weight: bold;
-  }
-   #ToDo input[type="text"] {
-    padding: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-  }
-   #ToDo button {
-    padding: 5px 10px;
-  }
-   #ToDo ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-   #ToDo ul li {
-    padding: 10px;
-    background-color: #f0f0f0;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-   #ToDo ul li .completed {
-    text-decoration: line-through;
-    color: grey;
-  }
-   #ToDo ul li button {
-    background-color: transparent;
-    border: none;
-    color: #555;
-    font-size: 18px;
-    cursor: pointer;
-  }
-   #ToDo ul li button:hover {
-    color: red;
-  }
-  /* Style for the Colors tab */
-    .yellow {
-    color: yellow;
-    background-color: black;
-    padding: 11px;
-    margin: 0;
-    }
-   .purple {
-    color: purple;
-    background-color: yellow;
-    padding: 11px;
-    margin: 0;
-  }
- .down-here {
-    position: absolute;
-    bottom: 50px;
-    right: 10px;
-  }
- 
- 
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.tablink {
+  background-color: #555;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 16.66%;
+  float: left;
+}
+.allContent {
+  margin: auto;
+  width: 640px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: powderblue;
+  position: relative;
+}
+.everything {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  background-color: #555;
+  height: 50px;
+}
+.tablink:hover {
+  background-color: #777;
+}
+.tabcontent {
+  display: none;
+  flex-grow: 1;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(186, 85, 85);
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+.scrollable-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100% - 40px);
+}
+#Choices form {
+  text-align: left;
+  margin: 20px;
+}
+#Choices label {
+  font-weight: bold;
+}
+#ToDo input[type="text"] {
+  padding: 5px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+#ToDo button {
+  padding: 5px 10px;
+}
+#ToDo ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+#ToDo ul li {
+  padding: 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#ToDo ul li .completed {
+  text-decoration: line-through;
+  color: grey;
+}
+#ToDo ul li button {
+  background-color: transparent;
+  border: none;
+  color: #555;
+  font-size: 18px;
+  cursor: pointer;
+}
+#ToDo ul li button:hover {
+  color: red;
+}
+/* Style for the Colors tab */
+.yellow {
+  color: yellow;
+  background-color: black;
+  padding: 11px;
+  margin: 0;
+}
+.purple {
+  color: purple;
+  background-color: yellow;
+  padding: 11px;
+  margin: 0;
+}
+.down-here {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+}
+
+/* Updated Styles for Tab 1: Text */
+#Text .scrollable-content {
+  padding: 20px;
+  background-color: #000; /* Dark background */
+  color: #fff; /* White text */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+.search-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Goals Section with Box */
+.goals-box {
+  border: 2px solid #a463ff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left; /* Left align the goals content */
+}
+.section.goals h2 {
+  font-size: 22px;
+  color: #a463ff; /* Purple color for section headers */
+}
+.goals-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+.goals-list li {
+  font-size: 18px;
+  padding: 8px 0;
+  position: relative;
+}
+.goals-list li::before {
+  content: "⬤"; /* Purple circle before each goal */
+  color: #a463ff;
+  margin-right: 10px;
+}
+
+/* Articles Section with Images */
+.section.articles h2 {
+  font-size: 22px;
+  color: #fcbf24; /* Orange-yellow */
+}
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.article-item a {
+  color: #fff;
+  font-size: 14px;
+  background-color: #262626; /* Dark gray background for article boxes */
+  padding: 15px;
+  display: block;
+  border-radius: 10px;
+  text-align: center;
+}
+.article-item a:hover {
+  background-color: #333;
+}
+.article-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.link-icon {
+  margin-left: 5px;
+}
+
+/* Recipes Section with Images */
+.section.recipes h2 {
+  font-size: 22px;
+  color: #ff6437; /* Orange color */
+}
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.recipe-item a {
+  color: #fff;
+  font-size: 14px;
+  background-color: #262626;
+  padding: 15px;
+  display: block;
+  border-radius: 10px;
+  text-align: center;
+}
+.recipe-item a:hover {
+  background-color: #333;
+}
+.recipe-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
