@@ -1,204 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
-<title>Tabs Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tabs Example</title>
 </head>
 <body>
 <div id="wrapped" class="allContent">
- <div class="everything">
-   <!--W3 Schools' code was used to create the general layout and buttons on the bottom. https://www.w3schools.com/howto/howto_js_tab_header.asp-->
+    <div class="everything">
 
-   <!-- Updated Tab 1: Text -->
-   <div id="Text" class="tabcontent">
-    <div class="scrollable-content">
-        <!-- Top Header with Username and Search Icon -->
-        <div class="header">
-            <h1 class="greeting">Hey Andy</h1>
-            <span class="search-icon">&#x1F50D;</span> <!-- Unicode for magnifying glass -->
+        <!--W3 Schools' code was used to create the general layout and buttons on the bottom. https://www.w3schools.com/howto/howto_js_tab_header.asp-->
+
+        <!-- Updated Tab 1: Text -->
+        <div id="Text" class="tabcontent">
+            <div class="scrollable-content">
+                <!-- Top Header with Username and Search Icon -->
+                <div class="header">
+                    <h1 class="greeting">Hey Andy</h1>
+                    <span class="search-icon">&#x1F50D;</span> <!-- Unicode for magnifying glass -->
+                </div>
+
+                <!-- Section: Today's Goals with Box -->
+                <div class="section goals-box">
+                    <h2>Today's Goals</h2>
+                    <ul id="goals-list" class="goals-list">
+                        <li><span>Complete a calisthenics workout</span> <button onclick="removeGoal(this)">×</button></li>
+                        <li><span>Eat 50 grams of protein</span> <button onclick="removeGoal(this)">×</button></li>
+                        <li><span>Create new goal</span> <button onclick="removeGoal(this)">×</button></li>
+                    </ul>
+                    
+                    <!-- Input to add new goals -->
+                    <input type="text" id="newGoal" placeholder="New goal...">
+                    <button onclick="addGoal()">Add Goal</button>
+                </div>
+
+                <!-- Section: Articles for You with Images -->
+                <div class="section articles">
+                    <h2>Articles for You</h2>
+                    <div class="article-grid">
+                        <div class="article-item">
+                            <a href="#">
+                                How to run a 5K <span class="link-icon">&#x21E8;</span>
+                                <img src="images/running.jpg" alt="How to run a 5K" class="article-image">
+                            </a>
+                        </div>
+                        <div class="article-item">
+                            <a href="#">
+                                Fasted Cardio <span class="link-icon">&#x21E8;</span>
+                                <img src="images/cardio.jpg" alt="Fasted Cardio" class="article-image">
+                            </a>
+                        </div>
+                        <div class="article-item">
+                            <a href="#">
+                                Journaling <span class="link-icon">&#x21E8;</span>
+                                <img src="images/journal.jpg" alt="Journaling" class="article-image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Recipes for You with Images -->
+                <div class="section recipes">
+                    <h2>Recipes for You</h2>
+                    <div class="recipe-grid">
+                        <div class="recipe-item">
+                            <a href="#">
+                                Protein-filled meals <span class="link-icon">&#x21E8;</span>
+                                <img src="images/protein.jpg" alt="Protein-filled meals" class="recipe-image">
+                            </a>
+                        </div>
+                        <div class="recipe-item">
+                            <a href="#">
+                                Chicken Parmesan <span class="link-icon">&#x21E8;</span>
+                                <img src="images/chickenparm.jpg" alt="Chicken Parmesan" class="recipe-image">
+                            </a>
+                        </div>
+                        <div class="recipe-item">
+                            <a href="#">
+                                Vegetable Stir Fry <span class="link-icon">&#x21E8;</span>
+                                <img src="images/stirfry.jpg" alt="Vegetable Stir Fry" class="recipe-image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Section: Today's Goals with Box -->
-        <div class="section goals-box">
-            <h2>Today's Goals</h2>
-            <ul class="goals-list">
-                <li>Complete a calisthenics workout</li>
-                <li>Eat 50 grams of protein</li>
-                <li>Create new goal</li>
+
+        <!-- Tab 2: Choices -->
+        <div id="Choices" class="tabcontent">
+            <h1>Choices</h1>
+            <form>
+                <label for="hatColor1">Hat color #1:</label><br>
+                <input type="radio" id="redHat" name="hatColor1" value="Red" checked> Red<br>
+                <input type="radio" id="blueHat" name="hatColor1" value="Blue"> Blue<br><br>
+
+                <label for="hatColor2">Hat color #2:</label><br>
+                <select id="hatColor2">
+                    <option value="Red">Red</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Green">Green</option>
+                </select><br><br>
+
+                <button type="button" onclick="displayChoice()">Print something based on above choices...</button>
+            </form>
+            <p id="choiceResult"></p>
+        </div>
+
+        <!-- Tab 3: ToDo -->
+        <div id="ToDo" class="tabcontent">
+            <h1>To Do</h1>
+            <input type="text" id="newItem" placeholder="New entry...">
+            <button onclick="addItem()">Add</button>
+            <ul id="todoList">
+                <li><span class="completed">Register for classes</span> <button onclick="removeItem(this)">×</button></li>
+                <li><span class="completed">Pay tuition and fees</span> <button onclick="removeItem(this)">×</button></li>
             </ul>
         </div>
-        
-        <!-- Section: Articles for You with Images -->
-        <div class="section articles">
-            <h2>Articles for You</h2>
-            <div class="article-grid">
-                <div class="article-item">
-                    <a href="#">
-                        <img src="path-to-your-image-1.jpg" alt="How to run a 5K" class="article-image">
-                        How to run a 5K <span class="link-icon">&#x21E8;</span>
-                    </a>
-                </div>
-                <div class="article-item">
-                    <a href="#">
-                        <img src="path-to-your-image-2.jpg" alt="Fasted Cardio" class="article-image">
-                        Fasted Cardio <span class="link-icon">&#x21E8;</span>
-                    </a>
-                </div>
-                <div class="article-item">
-                    <a href="#">
-                        <img src="path-to-your-image-3.jpg" alt="Journaling" class="article-image">
-                        Journaling <span class="link-icon">&#x21E8;</span>
-                    </a>
-                </div>
+
+        <!-- Tab 4: Profile -->
+        <div id="Profile" class="tabcontent">
+            <h1>Profile</h1>
+            <img src="turtle.png" alt="image" id="img" width="200" style="cursor: pointer;">
+            <div id="txt" style="display: none;">
+                <button id='close'>&times;</button>
+                <p>Hello.</p>
             </div>
+            <script>
+                pic = document.getElementById('img');
+                text = document.getElementById('txt');
+                close = document.getElementById('close');
+                pic.addEventListener('click', () => {
+                    text.style.display = 'block';
+                });
+                close.addEventListener('click', () => {
+                    text.style.display = 'none';
+                });
+            </script>
         </div>
 
-        <!-- Section: Recipes for You with Images -->
-        <div class="section recipes">
-            <h2>Recipes for You</h2>
-            <div class="recipe-grid">
-                <div class="recipe-item">
-                    <a href="#">
-                        <img src="path-to-your-image-4.jpg" alt="Protein-filled meals" class="recipe-image">
-                        Protein-filled meals <span class="link-icon">&#x21E8;</span>
-                    </a>
-                </div>
-                <div class="recipe-item">
-                    <a href="#">
-                        <img src="path-to-your-image-5.jpg" alt="Chicken Parmesan" class="recipe-image">
-                        Chicken Parmesan <span class="link-icon">&#x21E8;</span>
-                    </a>
-                </div>
-                <div class="recipe-item">
-                    <a href="#">
-                        <img src="path-to-your-image-6.jpg" alt="Vegetable Stir Fry" class="recipe-image">
-                        Vegetable Stir Fry <span class="link-icon">&#x21E8;</span>
-                    </a>
-                </div>
-            </div>
+        <!-- Tab 5: Colors -->
+        <div id="Colors" class="tabcontent">
+            <h1>Colors</h1>
+            <p class="yellow">Hello There.</p>
+            <p class="purple">Hi Again.</p>
+        </div>
+
+        <!-- Tab 6: LR -->
+        <div id="LR" class="tabcontent">
+            <h1>LR</h1>
+            <p class="down-here">Down Here</p>
+        </div>
+
+        <!-- Continuation of the first original link. https://www.w3schools.com/howto/howto_js_tab_header.asp -->
+
+        <!-- Buttons -->
+        <div class="tab-buttons">
+            <button class="tablink" onclick="openTab('Text', this)" id="defaultOpen">Text</button>
+            <button class="tablink" onclick="openTab('Choices', this)">Choices</button>
+            <button class="tablink" onclick="openTab('ToDo', this)">ToDo</button>
+            <button class="tablink" onclick="openTab('Profile', this)">Profile</button>
+            <button class="tablink" onclick="openTab('Colors', this)">Colors</button>
+            <button class="tablink" onclick="openTab('LR', this)">LR</button>
         </div>
     </div>
 </div>
 
-   <!-- This code was used for tab 2. https://www.w3schools.com/howto/howto_js_todolist.asp -->
-   <!-- Tab 2: Choices -->
-   <div id="Choices" class="tabcontent">
-     <h1>Choices</h1>
-     <form>
-       <label for="hatColor1">Hat color #1:</label><br>
-       <input type="radio" id="redHat" name="hatColor1" value="Red" checked> Red<br>
-       <input type="radio" id="blueHat" name="hatColor1" value="Blue"> Blue<br><br>
-    
-       <label for="hatColor2">Hat color #2:</label><br>
-       <select id="hatColor2">
-         <option value="Red">Red</option>
-         <option value="Blue">Blue</option>
-         <option value="Green">Green</option>
-       </select><br><br>
-
-       <button type="button" onclick="displayChoice()">Print something based on above choices...</button>
-     </form>
-     <p id="choiceResult"></p>
-   </div>
-
-   <!-- Tab 3: ToDo -->
-   <div id="ToDo" class="tabcontent">
-     <h1>To Do</h1>
-     <input type="text" id="newItem" placeholder="New entry...">
-     <button onclick="addItem()">Add</button>
-     <ul id="todoList">
-       <li><span class="completed">Register for classes</span> <button onclick="removeItem(this)">×</button></li>
-       <li><span class="completed">Pay tuition and fees</span> <button onclick="removeItem(this)">×</button></li>
-     </ul>
-   </div>
-
-   <!--Tab 4: Profile-->
-   <div id="Profile" class="tabcontent">
-     <h1>Profile</h1>
-     <img src="turtle.png" alt="image" id="img" width="200" style="cursor: pointer;">
-     <div id="txt" style="display: none;">
-         <button id = 'close'>&times;</button>
-         <p>Hello.</p>
-     </div>
-     <script>
-          pic = document.getElementById('img');
-          text = document.getElementById('txt');
-          close = document.getElementById('close');
-         pic.addEventListener('click', () => {
-             text.style.display = 'block';
-         });
-         close.addEventListener('click', () => {
-             text.style.display = 'none';
-         });
-     </script>
-   </div>
-
-   <!-- Tab 5: Colors -->
-   <div id="Colors" class="tabcontent">
-    <h1>Colors</h1>
-    <p class="yellow">Hello There.</p>
-    <p class="purple">Hi Again.</p>
-  </div>
-
-   <!-- Tab 6: LR -->
-  <div id="LR" class="tabcontent">
-    <h1>LR</h1>
-    <p class="down-here">Down Here</p>
-  </div>
-
-    <!-- Buttons -->
-    <div class="tab-buttons">
-      <button class="tablink" onclick="openTab('Text', this)" id="defaultOpen">Text</button>
-      <button class="tablink" onclick="openTab('Choices', this)">Choices</button>
-      <button class="tablink" onclick="openTab('ToDo', this)">ToDo</button>
-      <button class="tablink" onclick="openTab('Profile', this)">Profile</button>
-      <button class="tablink" onclick="openTab('Colors', this)">Colors</button>
-      <button class="tablink" onclick="openTab('LR', this)">LR</button>
-    </div>
-  </div>
-</div>
 <script>
-
-  function openTab(tabName, elmnt) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+    function openTab(tabName, elmnt) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "black";
+        }
+        document.getElementById(tabName).style.display = "block";
     }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "black";
+
+    document.getElementById("defaultOpen").click();
+
+    function displayChoice() {
+        const hatColor1 = document.querySelector('input[name="hatColor1"]:checked').value;
+        const hatColor2 = document.getElementById("hatColor2").value;
+        document.getElementById("choiceResult").innerText = `Hat color #1: ${hatColor1}, Hat color #2: ${hatColor2}`;
     }
-    document.getElementById(tabName).style.display = "block";
-  }
 
- document.getElementById("defaultOpen").click();
+    function addItem() {
+        const newItemText = document.getElementById("newItem").value;
+        if (newItemText.trim() !== "") {
+            const li = document.createElement("li");
+            li.innerHTML = `<span>${newItemText}</span> <button onclick="removeItem(this)">×</button>`;
+            li.querySelector("span").onclick = function () {
+                this.classList.toggle("completed");
+            };
+            document.getElementById("todoList").appendChild(li);
+            document.getElementById("newItem").value = '';
+        }
+    }
 
- function displayChoice() {
-   const hatColor1 = document.querySelector('input[name="hatColor1"]:checked').value;
-   const hatColor2 = document.getElementById("hatColor2").value;
-   document.getElementById("choiceResult").innerText = `Hat color #1: ${hatColor1}, Hat color #2: ${hatColor2}`;
- }
+    function removeItem(element) {
+        element.parentElement.remove();
+    }
 
- function addItem() {
-   const newItemText = document.getElementById("newItem").value;
-   if (newItemText.trim() !== "") {
-     const li = document.createElement("li");
-     li.innerHTML = `<span>${newItemText}</span> <button onclick="removeItem(this)">×</button>`;
-     li.querySelector("span").onclick = function() {
-       this.classList.toggle("completed");
-     };
-     document.getElementById("todoList").appendChild(li);
-     document.getElementById("newItem").value = '';
-   }
- }
+    function addGoal() {
+        const newGoalText = document.getElementById("newGoal").value;
+        if (newGoalText.trim() !== "") {
+            const li = document.createElement("li");
+            li.innerHTML = `<span>${newGoalText}</span> <button onclick="removeGoal(this)">×</button>`;
+            document.getElementById("goals-list").appendChild(li);
+            document.getElementById("newGoal").value = ''; // Clear the input field
+        }
+    }
 
- function removeItem(element) {
-   element.parentElement.remove();
- }
+    function removeGoal(element) {
+        element.parentElement.remove();
+    }
 </script>
+
 </body>
 </html>
-
