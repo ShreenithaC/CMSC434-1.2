@@ -258,3 +258,45 @@ body {
   font-size: 14px;
   color: #555;
 }
+
+
+
+
+
+
+/*Exercise*/
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Text Styling */
+.task-text {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+/* Remove Button Styling */
+.remove-btn {
+  background: none;
+  border: none;
+  color: #d9534f;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: #c9302c;
+}

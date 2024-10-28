@@ -197,14 +197,52 @@
 
         <!-- Tab 3: ToDo -->
         <div id="ToDo" class="tabcontent">
-            <h1>To Do</h1>
-            <input type="text" id="newItem" placeholder="New entry...">
-            <button onclick="addItem()">Add</button>
-            <ul id="todoList">
-                <li><span class="completed">Register for classes</span> <button onclick="removeItem(this)">×</button></li>
-                <li><span class="completed">Pay tuition and fees</span> <button onclick="removeItem(this)">×</button></li>
+            <h1 style="text-align: center; font-size: 24px; margin-bottom: 20px;">To Do</h1>
+        
+            <!-- Input and Add Button for New Item -->
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                <input type="text" id="newItem" placeholder="New entry..." style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; width: 200px;">
+                <button onclick="addItem()" style="padding: 10px 15px; font-size: 16px; border-radius: 5px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Add</button>
+            </div>
+        
+            <!-- To-Do List -->
+            <ul id="todoList" style="list-style-type: none; padding: 0;">
+                <li class="todo-item">
+                    <span class="task-text completed">Register for classes</span>
+                    <button class="remove-btn" onclick="removeItem(this)">×</button>
+                </li>
+                <li class="todo-item">
+                    <span class="task-text completed">Pay tuition and fees</span>
+                    <button class="remove-btn" onclick="removeItem(this)">×</button>
+                </li>
             </ul>
         </div>
+        
+        <script>
+            function addItem() {
+                const newItemText = document.getElementById("newItem").value;
+                if (newItemText.trim() !== "") {
+                    const li = document.createElement("li");
+                    li.className = "todo-item";
+                    li.innerHTML = `<span class="task-text">${newItemText}</span> <button class="remove-btn" onclick="removeItem(this)">×</button>`;
+                    
+                    // Add click event to mark as completed
+                    li.querySelector(".task-text").onclick = function () {
+                        this.classList.toggle("completed");
+                    };
+        
+                    document.getElementById("todoList").appendChild(li);
+                    document.getElementById("newItem").value = '';
+                }
+            }
+        
+            function removeItem(element) {
+                element.parentElement.remove();
+            }
+        </script>
+
+
+
 
 
 
