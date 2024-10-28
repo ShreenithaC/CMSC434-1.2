@@ -118,33 +118,72 @@
             </ul>
         </div>
 
+
+
+
         <!-- Tab 4: Profile -->
         <div id="Profile" class="tabcontent">
-            <h1>Profile</h1>
-            <img src="turtle.png" alt="image" id="img" width="200" style="cursor: pointer;">
-            <div id="txt" style="display: none;">
-                <button id='close'>&times;</button>
+            <!-- Centered Header -->
+            <h1 style="text-align: center;">Hi John Doe!</h1>
+        
+            <!-- Centered Profile Picture Below Header -->
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <img src="BITMOJI.png" alt="Profile Picture" id="img" width="80" style="border-radius: 50%; cursor: pointer;">
+            </div>
+        
+            <!-- Row with Weight, Height, and Age -->
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                <div class="info-box"><strong>Weight:</strong> 70 kg</div>
+                <div class="info-box"><strong>Height:</strong> 180 cm</div>
+                <div class="info-box"><strong>Age:</strong> 25</div>
+            </div>
+        
+            <!-- Bubbles with Large Number and Small Text -->
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                <div class="bubble">
+                    <div class="large-number">1</div>
+                    <div class="small-text">workout done</div>
+                </div>
+                <div class="bubble">
+                    <div class="large-number">72</div>
+                    <div class="small-text">grams of protein</div>
+                </div>
+            </div>
+        
+            <!-- Image Below Bubbles -->
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="image.png" alt="Sleep Cycle Graph" style="width: 100%; max-width: 600px; border-radius: 10px;">
+            </div>
+        
+            <!-- Table Image at the Bottom -->
+            <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
+                <img src="table.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px;">
+            </div>
+        
+            <!-- Hidden Text Displayed on Image Click -->
+            <div id="txt" style="display: none; margin-top: 10px;">
+                <button id="close" style="background: none; border: none; font-size: 18px; color: white; cursor: pointer;">&times;</button>
                 <p>Hello.</p>
             </div>
+        
             <script>
-                pic = document.getElementById('img');
-                text = document.getElementById('txt');
-                close = document.getElementById('close');
+                const pic = document.getElementById('img');
+                const text = document.getElementById('txt');
+                const close = document.getElementById('close');
+        
                 pic.addEventListener('click', () => {
                     text.style.display = 'block';
                 });
+        
                 close.addEventListener('click', () => {
                     text.style.display = 'none';
                 });
             </script>
         </div>
 
-        <!-- Tab 5: Colors -->
-        <div id="Colors" class="tabcontent">
-            <h1>Colors</h1>
-            <p class="yellow">Hello There.</p>
-            <p class="purple">Hi Again.</p>
-        </div>
+
+
+
 
         <!-- Tab 6: LR -->
         <div id="LR" class="tabcontent">
