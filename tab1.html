@@ -197,49 +197,40 @@
 
         <!-- Tab 3: ToDo -->
         <div id="ToDo" class="tabcontent">
-            <h1 style="text-align: center; font-size: 24px; margin-bottom: 20px;">To Do</h1>
-        
-            <!-- Input and Add Button for New Item -->
-            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
-                <input type="text" id="newItem" placeholder="New entry..." style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; width: 200px;">
-                <button onclick="addItem()" style="padding: 10px 15px; font-size: 16px; border-radius: 5px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Add</button>
+            <!-- Header Section -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px;">
+                <h1 style="font-size: 24px; margin: 0;">Today's Workout</h1>
+                <button onclick="startWorkout()" style="font-size: 16px; color: #007BFF; background: none; border: none; cursor: pointer;">+ Start Workout</button>
             </div>
         
-            <!-- To-Do List -->
-            <ul id="todoList" style="list-style-type: none; padding: 0;">
-                <li class="todo-item">
-                    <span class="task-text completed">Register for classes</span>
-                    <button class="remove-btn" onclick="removeItem(this)">×</button>
-                </li>
-                <li class="todo-item">
-                    <span class="task-text completed">Pay tuition and fees</span>
-                    <button class="remove-btn" onclick="removeItem(this)">×</button>
-                </li>
-            </ul>
+            <!-- Workout Blocks -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 15px;">
+                <div class="workout-block">35 min<br>Jog</div>
+                <div class="workout-block">3 x 15<br>Lunges</div>
+                <div class="workout-block">3 x 15<br>Glute Bridge</div>
+                <div class="workout-block">4 x 15<br>Squats</div>
+            </div>
+        
+            <!-- Summary Section -->
+            <div style="padding: 15px;">
+                <h2 style="font-size: 20px; margin-bottom: 10px;">Summary</h2>
+                
+                <!-- Illustrations (Placeholder for Muscle Target) -->
+                <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                    <img src="front.png" alt="Muscle Front" style="width: 80px; height: auto;">
+                    <img src="back.png" alt="Muscle Back" style="width: 80px; height: auto;">
+                </div>
+        
+                <!-- Workout Details -->
+                <div style="font-size: 16px; line-height: 1.6;">
+                    <p><strong>Areas Targeted:</strong> Legs</p>
+                    <p><strong>Duration:</strong> 50 mins</p>
+                    <p><strong>Calories Burned:</strong> 350 Kcal</p>
+                </div>
+            </div>
+        
+           
         </div>
-        
-        <script>
-            function addItem() {
-                const newItemText = document.getElementById("newItem").value;
-                if (newItemText.trim() !== "") {
-                    const li = document.createElement("li");
-                    li.className = "todo-item";
-                    li.innerHTML = `<span class="task-text">${newItemText}</span> <button class="remove-btn" onclick="removeItem(this)">×</button>`;
-                    
-                    // Add click event to mark as completed
-                    li.querySelector(".task-text").onclick = function () {
-                        this.classList.toggle("completed");
-                    };
-        
-                    document.getElementById("todoList").appendChild(li);
-                    document.getElementById("newItem").value = '';
-                }
-            }
-        
-            function removeItem(element) {
-                element.parentElement.remove();
-            }
-        </script>
 
 
 
