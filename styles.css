@@ -12,9 +12,9 @@ body {
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 16.66%;
+  width: 20%;
   float: left;
-}
+} 
 .allContent {
   margin: auto;
   width: 640px;
@@ -29,13 +29,19 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100vh; /* Full height of the viewport */
 }
 .tab-buttons {
   display: flex;
   justify-content: space-between;
   background-color: #555;
   height: 50px;
+  position: fixed; /* Ensures the footer remains fixed at the bottom */
+  bottom: 0;
+  width: 640px; /* Adjust as per the container width */
 }
+
 .tablink:hover {
   background-color: #777;
 }
@@ -45,9 +51,12 @@ body {
   padding: 0;
   text-align: center;
   background-color: rgb(186, 85, 85);
-  height: calc(100vh - 50px);
-  overflow-y: auto;
+  height: calc(100vh - 50px); /* Ensures tab content doesn’t overflow */
+  overflow-y: auto; /* Allows the inner content to scroll if needed */
+
+  padding-bottom: 50px; /* Makes space for the footer */
 }
+
 .scrollable-content {
   padding: 20px;
   overflow-y: auto;
@@ -437,4 +446,141 @@ body {
   margin-top: 15px;
   font-size: 18px;
   color: #fcbf24; /* Matches the highlight color */
+}
+
+#Choices {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px;
+  text-align: center;
+}
+
+#Choices label {
+  color: #fcbf24; /* Matches the yellow highlight color */
+}
+
+#Choices textarea, 
+#Choices input[type="time"] {
+  background-color: #333; /* Dark gray background */
+  color: white; /* White text */
+  border: 1px solid #777; /* Light border */
+}
+
+#Choices button {
+  background-color: #a463ff; /* Matches the purple button color */
+  color: white; /* White text */
+}
+
+.star {
+  color: #ccc; /* Default star color */
+}
+
+.star:hover,
+.star[data-value="1"]:hover ~ .star,
+.star[data-value="1"] {
+  color: gold; /* Highlight stars when selected */
+}
+
+/* Profile tab color scheme update */
+#Profile {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px;
+  text-align: center;
+}
+
+#Profile h1,
+#Profile .info-box,
+#Profile .bubble .large-number,
+#Profile .bubble .small-text {
+  color: #fff; /* White text for profile elements */
+}
+
+#Profile .info-box {
+  background-color: #333; /* Dark gray background */
+  color: #fff; /* White text */
+  border: 1px solid #777; /* Light border */
+}
+
+#Profile .bubble {
+  background-color: #a463ff; /* Purple background for bubbles */
+  color: #fff; /* White text */
+}
+
+#Profile img {
+  border: 2px solid #fff; /* Add a white border around images */
+}
+
+/* Styles for the Exercise Tab */
+
+/* General layout */
+#Exercise {
+  background-color: #000; /* Match black background like other tabs */
+  color: #fff; /* White text */
+  padding: 10px; /* Reduce padding */
+  text-align: center;
+}
+
+/* Workout cards */
+.workout-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px; /* Reduce space between cards */
+  margin-top: 10px; /* Reduce margin */
+  margin-bottom: 10px; /* Reduce margin */
+}
+
+.workout-card {
+  background-color: #333; /* Dark gray background */
+  padding: 10px; /* Reduce padding */
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px; /* Reduce font size */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Workout summary section */
+.workout-summary h2 {
+  font-size: 30px; /* Reduce size */
+  color: #a463ff; /* Matches yellow highlight color */
+}
+
+.muscle-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Reduce gap */
+  margin-top: 10px; /* Reduce margin */
+  margin-bottom: 10px; /* Reduce margin */
+}
+
+.muscle-image {
+  width: 200px; /* Limit the size of the muscle image */
+  height: auto;
+  border: 2px solid #fff; /* White border around images */
+  border-radius: 10px;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px; /* Reduce margin */
+  font-size: 20px; /* Adjust font size */
+}
+
+.summary-list li {
+  margin-bottom: 5px; /* Reduce margin */
+  color: #fcbf24;
+}
+
+#Exercise .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px; /* Add some top margin to bring it down */
+  margin-bottom: 20px; /* Optional: Add bottom margin to space out content */
+}
+
+#Exercise .workout-summary {
+  margin-top: 20px; /* Adds space above the summary */
 }

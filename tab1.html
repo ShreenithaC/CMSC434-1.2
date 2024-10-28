@@ -325,26 +325,55 @@
             </script>
         </div>
 
-
-
-
-
-        <!-- Tab 6: LR -->
-        <div id="LR" class="tabcontent">
-            <h1>LR</h1>
-            <p class="down-here">Down Here</p>
+<!-- Tab 5: Exercise -->
+<div id="Exercise" class="tabcontent">
+    <!-- Header for Today's Workout -->
+    <div class="header">
+        <h1>Today's Workout</h1>
+        <button class="start-workout-btn">+ Start Workout</button> <!-- Start workout button -->
+    </div>
+    
+    <!-- Workout Cards -->
+    <div class="workout-cards">
+        <div class="workout-card">
+            <p>35 min jog</p>
         </div>
+        <div class="workout-card">
+            <p>3 x 15 Lunges</p>
+        </div>
+        <div class="workout-card">
+            <p>3 x 15 Glute Bridge</p>
+        </div>
+        <div class="workout-card">
+            <p>4 x 15 Squats</p>
+        </div>
+    </div>
+    
+    <!-- Workout Summary Section -->
+    <div class="workout-summary">
+        <h2>Summary</h2>
+        <div class="muscle-images">
+            <img src="images/muscles.jpg" alt="Body Image" class="muscle-image"> <!-- REPLACE WITH ACTUAL IMAGE PATH -->
+        </div>
+        <ul class="summary-list">
+            <li><strong>Areas Targeted:</strong> Legs</li>
+            <li><strong>Duration:</strong> 50 mins</li>
+            <li><strong>Calories Burned:</strong> 350 Kcal</li>
+        </ul>
+    </div>
+</div>
+
+
 
         <!-- Continuation of the first original link. https://www.w3schools.com/howto/howto_js_tab_header.asp -->
 
         <!-- Buttons -->
         <div class="tab-buttons">
-            <button class="tablink" onclick="openTab('Text', this)" id="defaultOpen">Text</button>
-            <button class="tablink" onclick="openTab('Choices', this)">Choices</button>
-            <button class="tablink" onclick="openTab('ToDo', this)">ToDo</button>
+            <button class="tablink" onclick="openTab('Text', this)" id="defaultOpen">Home</button>
+            <button class="tablink" onclick="openTab('Choices', this)">Mind</button>
+            <button class="tablink" onclick="openTab('ToDo', this)">Nutrition</button>
             <button class="tablink" onclick="openTab('Profile', this)">Profile</button>
-            <button class="tablink" onclick="openTab('Colors', this)">Colors</button>
-            <button class="tablink" onclick="openTab('LR', this)">LR</button>
+            <button class="tablink" onclick="openTab('Exercise', this)">Exercise</button>
         </div>
     </div>
 </div>
