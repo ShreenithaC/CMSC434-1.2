@@ -270,6 +270,36 @@
             <!-- Settings Icon in the Top Right Corner -->
             <img src="settings.png" alt="Settings" id="settingsIcon" style="position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; cursor: pointer;">
             
+            <div class="form-popup" id="preliminaryModal">
+                <form id="preliminaryForm" class="form-container">
+                    <h2>Preliminary Information</h2>
+            
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+            
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" placeholder="Enter your age" required>
+            
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" placeholder="Enter your height in cm" required>
+            
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" placeholder="Enter your weight in kg" required>
+            
+                    <label for="fitness-goal">Fitness Goal:</label>
+                    <select id="fitness-goal" required>
+                        <option value="" disabled selected>Select a goal...</option>
+                        <option value="Strength & Muscle Building">Strength & Muscle Building</option>
+                        <option value="Endurance & Stamina">Endurance & Stamina</option>
+                        <option value="Flexibility & Mobility">Flexibility & Mobility</option>
+                        <option value="Weight Loss & Toning">Weight Loss & Toning</option>
+                    </select>
+            
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+
             <!-- Centered Header -->
             <h1 style="text-align: center; font-size: 24px; margin-top: 20px;">Hi Bharat!</h1>
         
@@ -320,11 +350,45 @@
                 close.addEventListener('click', () => {
                     text.style.display = 'none';
                 });
-        
-                // Example function for settings icon click (if needed)
-                document.getElementById('settingsIcon').addEventListener('click', () => {
-                    alert("Settings clicked!");
-                });
+
+
+                //form stuff scripts
+                   // Get references to necessary elements
+    const settingsIcon = document.getElementById('settingsIcon');
+    const formPopup = document.getElementById('preliminaryModal');
+    const formContainer = document.getElementById('preliminaryForm');
+
+    // Function to open the form modal when the settings icon is clicked
+    settingsIcon.addEventListener('click', () => {
+        formPopup.style.display = "block";
+    });
+
+    // Function to close the form modal
+    function closeForm() {
+        formPopup.style.display = "none";
+    }
+
+    // Handle form submission
+    formContainer.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent normal form submission
+
+    // Get form input values
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value; // Age input
+    const height = document.getElementById('height').value;
+    const weight = document.getElementById('weight').value;
+    const fitnessGoal = document.getElementById('fitness-goal').value; // Fitness goal input
+
+    // Perform any necessary logic with the submitted data
+    console.log('Name:', name);
+    console.log('Age:', age); // Log age
+    console.log('Height:', height);
+    console.log('Weight:', weight);
+    console.log('Fitness Goal:', fitnessGoal); // Log fitness goal
+
+    // After submission, close the form
+    closeForm();
+});
             </script>
         </div>
 

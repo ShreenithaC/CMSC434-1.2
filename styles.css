@@ -579,3 +579,68 @@ body {
 #Exercise .workout-summary {
   margin-top: 20px; /* Adds space above the summary */
 }
+
+/* Modal form - hidden by default */
+.form-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  background-color: white;
+  width: 300px; /* Set a fixed width */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Styling for form elements */
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  font-size: 16px;
+  font-weight: bold;
+  color: black; /* Set font color to black */
+  margin-bottom: 5px; /* Add space below the label */
+}
+
+.form-container input, 
+.form-container select {
+  margin-bottom: 15px; /* Add space below input and select elements */
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container h2 {
+  font-size: 18px;
+  color: black; /* Set font color to black for heading */
+  margin-bottom: 20px; /* Add space below heading */
+  text-align: center;
+}
+
+/* Optional: Styling for buttons in the modal */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Hover effect for buttons */
+.form-container .btn:hover {
+  opacity: 1;
+}
