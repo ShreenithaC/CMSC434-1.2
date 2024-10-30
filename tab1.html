@@ -374,21 +374,21 @@
 
     // Get form input values
     const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value; // Age input
+    const age = document.getElementById('age').value;
     const height = document.getElementById('height').value;
     const weight = document.getElementById('weight').value;
-    const fitnessGoal = document.getElementById('fitness-goal').value; // Fitness goal input
 
-    // Perform any necessary logic with the submitted data
-    console.log('Name:', name);
-    console.log('Age:', age); // Log age
-    console.log('Height:', height);
-    console.log('Weight:', weight);
-    console.log('Fitness Goal:', fitnessGoal); // Log fitness goal
+    // Update the displayed information in the profile
+    document.querySelector('#Profile h1').innerText = `Hi ${name}!`; // Update the greeting with the entered name
+    document.querySelector('#Profile .info-box:nth-child(2)').innerText = `Weight: ${weight} kg`; // Update weight
+    document.querySelector('#Profile .info-box:nth-child(3)').innerText = `Height: ${height} cm`; // Update height
+    document.querySelector('#Profile .info-box:nth-child(4)').innerText = `Age: ${age}`; // Update age
 
     // After submission, close the form
     closeForm();
 });
+
+
             </script>
         </div>
 
