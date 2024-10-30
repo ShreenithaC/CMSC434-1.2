@@ -73,10 +73,18 @@ body {
   padding: 5px;
   font-size: 14px;
   margin-right: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 100px); /* Adjust width */
 }
+
 #ToDo button {
   padding: 5px 10px;
+  background-color: #fcbf24;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 #ToDo ul {
   list-style-type: none;
   padding: 0;

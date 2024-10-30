@@ -235,6 +235,8 @@
             <option value="Oatmeal">Oatmeal</option>
             <option value="Eggs">Eggs</option>
         </select>
+        <input type="text" id="newBreakfast" placeholder="Add new breakfast..." />
+        <button onclick="addNewOption('breakfast-dropdown', 'newBreakfast')">Add</button>
 
         <label for="lunch-dropdown" style="margin-top: 20px;">Lunch</label>
         <select id="lunch-dropdown" class="dropdown">
@@ -243,6 +245,8 @@
             <option value="Chicken Wrap">Chicken Wrap</option>
             <option value="Rice & Beans">Rice & Beans</option>
         </select>
+        <input type="text" id="newLunch" placeholder="Add new lunch..." />
+        <button onclick="addNewOption('lunch-dropdown', 'newLunch')">Add</button>
 
         <label for="dinner-dropdown" style="margin-top: 20px;">Dinner</label>
         <select id="dinner-dropdown" class="dropdown">
@@ -251,6 +255,9 @@
             <option value="Steak">Steak</option>
             <option value="Vegetable Stir Fry">Vegetable Stir Fry</option>
         </select>
+        <input type="text" id="newDinner" placeholder="Add new dinner..." />
+    <button onclick="addNewOption('dinner-dropdown', 'newDinner')">Add</button>
+
 
         <label for="snack-dropdown" style="margin-top: 20px;">Snack</label>
         <select id="snack-dropdown" class="dropdown">
@@ -259,6 +266,8 @@
             <option value="Nuts">Nuts</option>
             <option value="Protein Bar">Protein Bar</option>
         </select>
+        <input type="text" id="newSnack" placeholder="Add new snack..." />
+    <button onclick="addNewOption('snack-dropdown', 'newSnack')">Add</button>
     </div>
 </div>
 
@@ -354,41 +363,59 @@
 
                 //form stuff scripts
                    // Get references to necessary elements
-    const settingsIcon = document.getElementById('settingsIcon');
-    const formPopup = document.getElementById('preliminaryModal');
-    const formContainer = document.getElementById('preliminaryForm');
+        const settingsIcon = document.getElementById('settingsIcon');
+        const formPopup = document.getElementById('preliminaryModal');
+        const formContainer = document.getElementById('preliminaryForm');
 
-    // Function to open the form modal when the settings icon is clicked
-    settingsIcon.addEventListener('click', () => {
-        formPopup.style.display = "block";
-    });
+        // Function to open the form modal when the settings icon is clicked
+        settingsIcon.addEventListener('click', () => {
+            formPopup.style.display = "block";
+        });
 
-    // Function to close the form modal
-    function closeForm() {
-        formPopup.style.display = "none";
+        // Function to close the form modal
+        function closeForm() {
+            formPopup.style.display = "none";
+        }
+
+        // Handle form submission
+        formContainer.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent normal form submission
+
+        // Get form input values
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const height = document.getElementById('height').value;
+        const weight = document.getElementById('weight').value;
+
+        // Update the displayed information in the profile
+        document.querySelector('#Profile h1').innerText = `Hi ${name}!`; // Update the greeting with the entered name
+        document.querySelector('#Profile .info-box:nth-child(2)').innerText = `Weight: ${weight} kg`; // Update weight
+        document.querySelector('#Profile .info-box:nth-child(3)').innerText = `Height: ${height} cm`; // Update height
+        document.querySelector('#Profile .info-box:nth-child(4)').innerText = `Age: ${age}`; // Update age
+
+        // After submission, close the form
+        closeForm();
+        });
+
+        function addNewOption(dropdownId, inputId) {
+    const dropdown = document.getElementById(dropdownId);
+    const newValue = document.getElementById(inputId).value.trim();
+
+    if (newValue !== "") {
+        const newOption = document.createElement("option");
+        newOption.text = newValue;
+        newOption.value = newValue;
+        dropdown.add(newOption); // Add the new option to the dropdown
+
+        // Optionally, select the new option right away
+        dropdown.value = newValue;
+
+        // Clear the input field after adding
+        document.getElementById(inputId).value = '';
+    } else {
+        alert("Please enter a value to add.");
     }
-
-    // Handle form submission
-    formContainer.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent normal form submission
-
-    // Get form input values
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-    const height = document.getElementById('height').value;
-    const weight = document.getElementById('weight').value;
-
-    // Update the displayed information in the profile
-    document.querySelector('#Profile h1').innerText = `Hi ${name}!`; // Update the greeting with the entered name
-    document.querySelector('#Profile .info-box:nth-child(2)').innerText = `Weight: ${weight} kg`; // Update weight
-    document.querySelector('#Profile .info-box:nth-child(3)').innerText = `Height: ${height} cm`; // Update height
-    document.querySelector('#Profile .info-box:nth-child(4)').innerText = `Age: ${age}`; // Update age
-
-    // After submission, close the form
-    closeForm();
-});
-
-
+}
             </script>
         </div>
 
