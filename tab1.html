@@ -228,6 +228,8 @@
 
     <!-- Dropdown Menus -->
     <div class="dropdowns" style="color: white; font-size: 18px; text-align: left;">
+        <button id="submit-nutrition-btn" style="margin-left: 10px; background-color: #fcbf24; padding: 10px;">Submit Nutrition</button>
+
         <label for="breakfast-dropdown">Breakfast</label>
         <select id="breakfast-dropdown" class="dropdown">
             <option value="" disabled selected>Select an option</option>
@@ -416,6 +418,13 @@
         alert("Please enter a value to add.");
     }
 }
+document.getElementById("submit-nutrition-btn").addEventListener("click", function() {
+    // Generate a random number between 0 and 150
+    const randomProtein = Math.floor(Math.random() * 151); // 0 to 150 inclusive
+
+    // Update the profile bubble for grams of protein
+    document.querySelector("#Profile .bubble:nth-child(2) .large-number").textContent = randomProtein;
+});
             </script>
         </div>
 
