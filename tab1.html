@@ -408,24 +408,7 @@
         }
 
         // Handle form submission
-        formContainer.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent normal form submission
-
-        // Get form input values
-        const name = document.getElementById('name').value;
-        const age = document.getElementById('age').value;
-        const height = document.getElementById('height').value;
-        const weight = document.getElementById('weight').value;
-
-        // Update the displayed information in the profile
-        document.querySelector('#Profile h1').innerText = `Hi ${name}!`; // Update the greeting with the entered name
-        document.querySelector('#Profile .info-box:nth-child(2)').innerText = `Weight: ${weight} kg`; // Update weight
-        document.querySelector('#Profile .info-box:nth-child(3)').innerText = `Height: ${height} cm`; // Update height
-        document.querySelector('#Profile .info-box:nth-child(4)').innerText = `Age: ${age}`; // Update age
-
-        // After submission, close the form
-        closeForm();
-        });
+       
 
         function addNewOption(dropdownId, inputId) {
     const dropdown = document.getElementById(dropdownId);
@@ -475,7 +458,7 @@ document.getElementById("submit-nutrition-btn").addEventListener("click", functi
             <p>35 min jog</p>
         </div>
         <div class="workout-card">
-            <p>3 x 15 Lunges</p>
+            <p>3 x 11 Lunges</p>
         </div>
         <div class="workout-card">
             <p>3 x 15 Glute Bridge</p>
@@ -515,18 +498,99 @@ document.getElementById("submit-nutrition-btn").addEventListener("click", functi
 </div>
 
 <script>
+const workoutPlans = {
+    "Strength & Muscle Building": [
+        "2 x 10 Bench Press",
+        "4 x 10 Deadlift",
+        "4 x 10 Squats",
+        "3 x 15 Bicep Curls"
+    ],
+    "Endurance & Stamina": [
+        "40 min Run",
+        "3 x 20 Mountain Climbers",
+        "3 x 15 Burpees",
+        "4 x 15 Jump Squats"
+    ],
+    "Flexibility & Mobility": [
+        "20 min Yoga Flow",
+        "3 x 10 Shoulder Stretches",
+        "3 x 10 Hamstring Stretches",
+        "3 x 10 Hip Flexor Stretches"
+    ],
+    "Weight Loss & Toning": [
+        "30 min HIIT Cardio",
+        "4 x 15 Push-Ups",
+        "4 x 15 Bodyweight Squats",
+        "3 x 20 Bicycle Crunches"
+    ]
+};
+
+
+
+function updateWorkoutPlan(goal) {
+    const workoutCards = document.querySelector('.workout-cards');
+    workoutCards.innerHTML = ''; // Clear previous workouts
+
+    // Get the workouts for the selected goal
+    const selectedWorkouts = workoutPlans[goal] || [];
+
+    // Create workout cards for each workout in the plan
+    selectedWorkouts.forEach(workout => {
+        const workoutCard = document.createElement('div');
+        workoutCard.classList.add('workout-card');
+        workoutCard.innerHTML = `<p>${workout}</p>`;
+        workoutCards.appendChild(workoutCard);
+    });
+}
+
+
+formContainer.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form input values
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+    const height = document.getElementById('height').value;
+    const weight = document.getElementById('weight').value;
+    const fitnessGoal = document.getElementById('fitness-goal').value;
+
+    // Update the displayed information in the profile
+    document.querySelector('#Profile h1').innerText = `Hi ${name}!`;
+    document.querySelector('#Profile .info-box:nth-child(2)').innerText = `Weight: ${weight} kg`;
+    document.querySelector('#Profile .info-box:nth-child(3)').innerText = `Height: ${height} cm`;
+    document.querySelector('#Profile .info-box:nth-child(4)').innerText = `Age: ${age}`;
+
+    // Set workouts based on selected goal
+    updateWorkoutPlan(fitnessGoal);
+
+    // Close the form after submission
+    closeForm();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateWorkoutPlan("Strength & Muscle Building"); // Default plan or adjust as needed
+});
+
+
+
+
+
     function openTab(tabName, elmnt) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "black";
-        }
-        document.getElementById(tabName).style.display = "block";
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active"); // Remove active class from all buttons
+    }
+    document.getElementById(tabName).style.display = "block";
+    elmnt.classList.add("active"); // Add active class to clicked button
+}
+
+
+
 
     document.getElementById("defaultOpen").click();
 
