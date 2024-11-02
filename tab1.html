@@ -322,12 +322,17 @@
                      <div class="large-number">72</div>
                      <div class="small-text">grams of protein</div>
                   </div>
-                  <button onclick="editNutrition()" class="edit-nutrition-btn">Edit Nutrition</button>
+                  <!-- <button onclick="editNutrition()" class="edit-nutrition-btn">Edit Nutrition</button> -->
                </div>
                <!-- Table Image at the Bottom -->
                <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
-                  <img src="table.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px;">
-               </div>
+                <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                   <h2 style="margin-bottom: 5px; font-size: 24px;">Average 1,598 Cal</h2>
+                   <h4 style="margin-top: 0; font-size: 18px; color: gray;">Oct 27 - Nov 2, 2024</h4>
+                </div>
+                <img src="calgraph.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px; cursor: pointer; transition: border-color 0.3s;"
+                     onclick="openTab('ToDo', this)" class="hover-border">
+             </div>
                <!-- Hidden Text Displayed on Image Click -->
                <div id="txt" style="display: none; margin-top: 10px;">
                   <button id="close" style="background: none; border: none; font-size: 18px; color: white; cursor: pointer;">&times;</button>
