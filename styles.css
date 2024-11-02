@@ -54,10 +54,8 @@ body {
   background-color: rgb(186, 85, 85);
   height: calc(100vh - 50px); /* Ensures tab content doesn’t overflow */
   overflow-y: auto; /* Allows the inner content to scroll if needed */
- 
- 
   padding-bottom: 50px; /* Makes space for the footer */
- }
+}
  
  
  .scrollable-content {
@@ -733,22 +731,42 @@ body {
   opacity: 1;
  }
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  /*all button color change*/
  .tablink.active {
   background-color: #8C52FF;
   color: white; /* Optional for better readability */
  }
  
+ #ToDo {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  height: calc(100vh - 100px); /* Adjust to your needs */
+  overflow-y: auto; /* Ensure scrolling is enabled */
+  box-sizing: border-box;
+}
+
+/* Optional: Ensure the dropdown container can scroll if content exceeds the height */
+#ToDo .dropdowns {
+  max-height: 60vh; /* Set a maximum height */
+  overflow-y: auto; /* Enable scrolling within the dropdown container */
+  padding-bottom: 20px; /* Extra padding for easier scrolling */
+}
+
+.edit-nutrition-btn {
+  background-color: #fcbf24; /* Matches the highlight color */
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px; /* Add some spacing */
+}
+.edit-nutrition-btn:hover {
+  background-color: #ffc107; /* Slightly lighter on hover */
+}

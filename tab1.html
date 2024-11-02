@@ -322,6 +322,7 @@
                      <div class="large-number">72</div>
                      <div class="small-text">grams of protein</div>
                   </div>
+                  <button onclick="editNutrition()" class="edit-nutrition-btn">Edit Nutrition</button>
                </div>
                <!-- Table Image at the Bottom -->
                <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
@@ -602,6 +603,17 @@
            function removeGoal(element) {
                element.parentElement.remove();
            }
+
+           function editNutrition() {
+    // Simulate clicking on the Nutrition tab to switch views
+    document.getElementById("defaultOpen").click(); // Adjust if the Nutrition tab isn’t the default
+
+    // Directly show the Nutrition tab
+    openTab('ToDo', document.querySelector('.tablink[onclick*="ToDo"]'));
+    
+    // Scroll to the top in case the form is off-screen
+    document.getElementById("ToDo").scrollTop = 0;
+}
       </script>
    </body>
 </html>
