@@ -770,3 +770,7 @@ body {
 .edit-nutrition-btn:hover {
   background-color: #ffc107; /* Slightly lighter on hover */
 }
+
+.image-tint:hover {
+  filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg);
+}
