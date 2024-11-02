@@ -3,8 +3,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
-.tablink {
+ }
+ .tablink {
   background-color: #555;
   color: white;
   border: none;
@@ -14,8 +14,8 @@ body {
   font-size: 17px;
   width: 20%;
   float: left;
-} 
-.allContent {
+ }
+ .allContent {
   margin: auto;
   width: 640px;
   height: 100vh;
@@ -24,15 +24,15 @@ body {
   justify-content: space-between;
   background-color: powderblue;
   position: relative;
-}
-.everything {
+ }
+ .everything {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh; /* Full height of the viewport */
-}
-.tab-buttons {
+ }
+ .tab-buttons {
   display: flex;
   justify-content: space-between;
   background-color: #555;
@@ -40,12 +40,13 @@ body {
   position: fixed; /* Ensures the footer remains fixed at the bottom */
   bottom: 0;
   width: 640px; /* Adjust as per the container width */
-}
-
-.tablink:hover {
+ }
+ 
+ 
+ .tablink:hover {
   background-color: #777;
-}
-.tabcontent {
+ }
+ .tabcontent {
   display: none;
   flex-grow: 1;
   padding: 0;
@@ -53,46 +54,51 @@ body {
   background-color: rgb(186, 85, 85);
   height: calc(100vh - 50px); /* Ensures tab content doesn’t overflow */
   overflow-y: auto; /* Allows the inner content to scroll if needed */
-
+ 
+ 
   padding-bottom: 50px; /* Makes space for the footer */
-}
-
-.scrollable-content {
+ }
+ 
+ 
+ .scrollable-content {
   padding: 20px;
   overflow-y: auto;
   height: calc(100% - 40px);
-}
-#Choices form {
+ }
+ #Choices form {
   text-align: left;
   margin: 20px;
-}
-#Choices label {
+ }
+ #Choices label {
   font-weight: bold;
-}
-#ToDo input[type="text"] {
+ }
+ #ToDo input[type="text"] {
   padding: 5px;
   font-size: 14px;
   margin-right: 10px;
   margin-bottom: 10px;
   width: calc(100% - 100px); /* Adjust width */
-}
-
-#ToDo button {
+ }
+ 
+ 
+ #ToDo button {
   padding: 5px 10px;
   background-color: #fcbf24;
   color: black;
   border-radius: 5px;
   cursor: pointer;
-}
-
-#ToDo ul {
+ }
+ 
+ 
+ #ToDo ul {
   list-style-type: none;
   padding: 0;
   margin-top: 20px;
-}
-
-/* Ensure to-do list text is black */
-#ToDo ul li, .goals-list li {
+ }
+ 
+ 
+ /* Ensure to-do list text is black */
+ #ToDo ul li, .goals-list li {
   padding: 10px;
   background-color: #f0f0f0;
   margin-bottom: 5px;
@@ -100,103 +106,110 @@ body {
   justify-content: space-between;
   align-items: center;
   color: black; /* Ensure text is black */
-}
-
-/* Style for the goals and to-do list delete button */
-.goals-list li button, #ToDo ul li button {
+ }
+ 
+ 
+ /* Style for the goals and to-do list delete button */
+ .goals-list li button, #ToDo ul li button {
   background-color: transparent;
   border: none;
   color: #555;
   font-size: 18px;
   cursor: pointer;
-}
-
-.goals-list li button:hover, #ToDo ul li button:hover {
+ }
+ 
+ 
+ .goals-list li button:hover, #ToDo ul li button:hover {
   color: red;
-}
-
-/* Style for the Colors tab */
-.yellow {
+ }
+ 
+ 
+ /* Style for the Colors tab */
+ .yellow {
   color: yellow;
   background-color: black;
   padding: 11px;
   margin: 0;
-}
-.purple {
+ }
+ .purple {
   color: purple;
   background-color: yellow;
   padding: 11px;
   margin: 0;
-}
-.down-here {
+ }
+ .down-here {
   position: absolute;
   bottom: 50px;
   right: 10px;
-}
-
-/* Updated Styles for Tab 1: Text */
-#Text .scrollable-content {
+ }
+ 
+ 
+ /* Updated Styles for Tab 1: Text */
+ #Text .scrollable-content {
   padding: 20px;
   background-color: #000; /* Dark background */
   color: #fff; /* White text */
   font-family: 'Arial', sans-serif;
-}
-
-/* Header */
-.header {
+ }
+ 
+ 
+ /* Header */
+ .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-}
-.header h1 {
+ }
+ .header h1 {
   font-size: 32px;
   margin: 0;
-}
-.search-icon {
+ }
+ .search-icon {
   font-size: 24px;
   cursor: pointer;
-}
-
-/* Goals Section with Box */
-.goals-box {
+ }
+ 
+ 
+ /* Goals Section with Box */
+ .goals-box {
   border: 2px solid #a463ff;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
   text-align: left; /* Left align the goals content */
-}
-.section.goals h2 {
+ }
+ .section.goals h2 {
   font-size: 22px;
   color: #a463ff; /* Purple color for section headers */
-}
-.goals-list {
+ }
+ .goals-list {
   list-style: none;
   padding: 0;
   margin: 10px 0;
-}
-.goals-list li {
+ }
+ .goals-list li {
   font-size: 18px;
   padding: 8px 0;
   position: relative;
-}
-.goals-list li::before {
+ }
+ .goals-list li::before {
   content: "⬤"; /* Purple circle before each goal */
   color: #a463ff;
   margin-right: 10px;
-}
-
-/* Articles Section with Images */
-.section.articles h2 {
+ }
+ 
+ 
+ /* Articles Section with Images */
+ .section.articles h2 {
   font-size: 22px;
   color: #fcbf24; /* Orange-yellow */
-}
-.article-grid {
+ }
+ .article-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-}
-.article-item a {
+ }
+ .article-item a {
   color: #fff;
   font-size: 14px;
   background-color: #262626; /* Dark gray background for article boxes */
@@ -206,32 +219,35 @@ body {
   align-items: center;
   text-align: center;
   border-radius: 10px;
-}
-.article-item a:hover {
+ }
+ .article-item a:hover {
   background-color: #333;
-}
-
-
-/* Updated Image Sizes */
-.article-image, .recipe-image {
+ }
+ 
+ 
+ 
+ 
+ /* Updated Image Sizes */
+ .article-image, .recipe-image {
   width: 60px; /* Limit the width to 60px */
   height: 60px; /* Set a fixed height */
   margin-top: 10px;
   object-fit: contain; /* Keep the image contained within the box */
   border-radius: 8px; /* Optional: Add a slight border radius */
-}
-
-/* Recipes Section with Images */
-.section.recipes h2 {
+ }
+ 
+ 
+ /* Recipes Section with Images */
+ .section.recipes h2 {
   font-size: 22px;
   color: #ff6437; /* Orange color */
-}
-.recipe-grid {
+ }
+ .recipe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-}
-.recipe-item a {
+ }
+ .recipe-item a {
   color: #fff;
   font-size: 14px;
   background-color: #262626;
@@ -241,23 +257,26 @@ body {
   align-items: center;
   text-align: center;
   border-radius: 10px;
-}
-.recipe-item a:hover {
+ }
+ .recipe-item a:hover {
   background-color: #333;
-}
-
-
-/*Profile styling*/
-.info-box {
+ }
+ 
+ 
+ 
+ 
+ /*Profile styling*/
+ .info-box {
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
-}
-
-/* Style for Workout Done and Protein Bubbles */
-.bubble {
+ }
+ 
+ 
+ /* Style for Workout Done and Protein Bubbles */
+ .bubble {
   background-color: #a64dff;
   color: #fff;
   padding: 20px;
@@ -266,19 +285,26 @@ body {
   width: 120px;
   font-size: 18px;
   font-weight: bold;
-}
-
-.large-number {
+ }
+ 
+ 
+ .large-number {
   font-size: 24px;
-}
-
-
-
-
-
-
-/*Exercise*/
-.todo-item {
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*Exercise*/
+ .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -287,41 +313,47 @@ body {
   border-radius: 5px;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Task Text Styling */
-.task-text {
+ }
+ 
+ 
+ /* Task Text Styling */
+ .task-text {
   font-size: 16px;
   color: #333;
   cursor: pointer;
-}
-
-.task-text.completed {
+ }
+ 
+ 
+ .task-text.completed {
   text-decoration: line-through;
   color: #aaa;
-}
-
-/* Remove Button Styling */
-.remove-btn {
+ }
+ 
+ 
+ /* Remove Button Styling */
+ .remove-btn {
   background: none;
   border: none;
   color: #d9534f;
   font-size: 18px;
   cursor: pointer;
-}
-
-.remove-btn:hover {
+ }
+ 
+ 
+ .remove-btn:hover {
   color: #c9302c;
-}
-
-/* Nutrition/Exercise Tab Styling */
-.stats-section {
+ }
+ 
+ 
+ /* Nutrition/Exercise Tab Styling */
+ .stats-section {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-}
-
-.circle {
+ }
+ 
+ 
+ .circle {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -331,85 +363,98 @@ body {
   align-items: center;
   color: white;
   font-size: 16px;
-}
-
-.circle-content p {
+ }
+ 
+ 
+ .circle-content p {
   margin: 0;
   text-align: center;
-}
-
-.progress-bars {
+ }
+ 
+ 
+ .progress-bars {
   flex-grow: 1;
   padding-left: 20px;
-}
-
-.progress-bars p {
+ }
+ 
+ 
+ .progress-bars p {
   color: #fcbf24;
   margin-bottom: 5px;
-}
-
-.progress-bar {
+ }
+ 
+ 
+ .progress-bar {
   width: 100%;
   height: 10px;
   background-color: #333;
   border-radius: 5px;
   margin-bottom: 10px;
-}
-
-.filled-bar {
+ }
+ 
+ 
+ .filled-bar {
   height: 100%;
   background-color: #fcbf24;
   border-radius: 5px;
-}
-
-.meals {
+ }
+ 
+ 
+ .meals {
   margin-bottom: 20px;
-}
-
-.meal-item {
+ }
+ 
+ 
+ .meal-item {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-}
-
-.meal-item p {
+ }
+ 
+ 
+ .meal-item p {
   color: #fff;
-}
-
-.meal-item button {
+ }
+ 
+ 
+ .meal-item button {
   padding: 5px 10px;
   border-radius: 5px;
   background-color: #a463ff;
   color: white;
   border: none;
   cursor: pointer;
-}
-
-.search-section {
+ }
+ 
+ 
+ .search-section {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
-}
-
-.search-input {
+ }
+ 
+ 
+ .search-input {
   padding: 10px;
   font-size: 16px;
   width: 200px;
   border-radius: 5px;
   border: none;
-}
-
-.search-button {
+ }
+ 
+ 
+ .search-button {
   padding: 10px 15px;
   background-color: #a463ff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.create-own-btn {
+ }
+ 
+ 
+ .create-own-btn {
   padding: 10px 15px;
   background-color: #fcbf24;
   color: black;
@@ -417,18 +462,20 @@ body {
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-}
-
-/* Update background to match Tab 1 */
-#ToDo {
+ }
+ 
+ 
+ /* Update background to match Tab 1 */
+ #ToDo {
   background-color: #000; /* Black background like Tab 1 */
   color: #fff; /* White text */
   padding: 20px;
   text-align: center;
-}
-
-/* Style dropdowns */
-.dropdown {
+ }
+ 
+ 
+ /* Style dropdowns */
+ .dropdown {
   background-color: #333;
   color: white;
   padding: 10px;
@@ -437,104 +484,121 @@ body {
   margin-top: 10px;
   font-size: 16px;
   border: 1px solid #777;
-}
-
-.dropdown option {
+ }
+ 
+ 
+ .dropdown option {
   background-color: #000;
   color: white;
-}
-
-/* Adjust label styling */
-#ToDo label {
+ }
+ 
+ 
+ /* Adjust label styling */
+ #ToDo label {
   display: block;
   margin-top: 15px;
   font-size: 18px;
   color: #fcbf24; /* Matches the highlight color */
-}
-
-#Choices {
+ }
+ 
+ 
+ #Choices {
   background-color: #000; /* Black background */
   color: #fff; /* White text */
   padding: 20px;
   text-align: center;
-}
-
-#Choices label {
+ }
+ 
+ 
+ #Choices label {
   color: #fcbf24; /* Matches the yellow highlight color */
-}
-
-#Choices textarea, 
-#Choices input[type="time"] {
+ }
+ 
+ 
+ #Choices textarea,
+ #Choices input[type="time"] {
   background-color: #333; /* Dark gray background */
   color: white; /* White text */
   border: 1px solid #777; /* Light border */
-}
-
-#Choices button {
+ }
+ 
+ 
+ #Choices button {
   background-color: #a463ff; /* Matches the purple button color */
   color: white; /* White text */
-}
-
-.star {
+ }
+ 
+ 
+ .star {
   color: #ccc; /* Default star color */
-}
-
-.star:hover,
-.star[data-value="1"]:hover ~ .star,
-.star[data-value="1"] {
+ }
+ 
+ 
+ .star:hover,
+ .star[data-value="1"]:hover ~ .star,
+ .star[data-value="1"] {
   color: gold; /* Highlight stars when selected */
-}
-
-/* Profile tab color scheme update */
-#Profile {
+ }
+ 
+ 
+ /* Profile tab color scheme update */
+ #Profile {
   background-color: #000; /* Black background */
   color: #fff; /* White text */
   padding: 20px;
   text-align: center;
-}
-
-#Profile h1,
-#Profile .info-box,
-#Profile .bubble .large-number,
-#Profile .bubble .small-text {
+ }
+ 
+ 
+ #Profile h1,
+ #Profile .info-box,
+ #Profile .bubble .large-number,
+ #Profile .bubble .small-text {
   color: #fff; /* White text for profile elements */
-}
-
-#Profile .info-box {
+ }
+ 
+ 
+ #Profile .info-box {
   background-color: #333; /* Dark gray background */
   color: #fff; /* White text */
   border: 1px solid #777; /* Light border */
-}
-
-#Profile .bubble {
+ }
+ 
+ 
+ #Profile .bubble {
   background-color: #a463ff; /* Purple background for bubbles */
   color: #fff; /* White text */
-}
-
-#Profile img {
+ }
+ 
+ 
+ #Profile img {
   border: 2px solid #fff; /* Add a white border around images */
-}
-
-/* Styles for the Exercise Tab */
-
-/* General layout */
-#Exercise {
+ }
+ 
+ 
+ /* Styles for the Exercise Tab */
+ 
+ 
+ /* General layout */
+ #Exercise {
   background-color: #000; /* Match black background like other tabs */
   color: #fff; /* White text */
   padding: 10px; /* Reduce padding */
   text-align: center;
-}
-
-/* Workout cards */
-.workout-cards {
+ }
+ 
+ 
+ /* Workout cards */
+ .workout-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns */
   gap: 10px; /* Reduce space between cards */
   margin-top: 10px; /* Reduce margin */
   margin-bottom: 10px; /* Reduce margin */
-}
-
-.workout-card {
+ }
+ 
+ 
+ .workout-card {
   background-color: #333; /* Dark gray background */
   padding: 10px; /* Reduce padding */
   border-radius: 10px;
@@ -542,55 +606,63 @@ body {
   font-size: 16px; /* Reduce font size */
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Workout summary section */
-.workout-summary h2 {
+ }
+ 
+ 
+ /* Workout summary section */
+ .workout-summary h2 {
   font-size: 30px; /* Reduce size */
   color: #a463ff; /* Matches yellow highlight color */
-}
-
-.muscle-images {
+ }
+ 
+ 
+ .muscle-images {
   display: flex;
   justify-content: center;
   gap: 10px; /* Reduce gap */
   margin-top: 10px; /* Reduce margin */
   margin-bottom: 10px; /* Reduce margin */
-}
-
-.muscle-image {
+ }
+ 
+ 
+ .muscle-image {
   width: 200px; /* Limit the size of the muscle image */
   height: auto;
   border: 2px solid #fff; /* White border around images */
   border-radius: 10px;
-}
-
-.summary-list {
+ }
+ 
+ 
+ .summary-list {
   list-style: none;
   padding: 0;
   margin-top: 30px; /* Reduce margin */
   font-size: 20px; /* Adjust font size */
-}
-
-.summary-list li {
+ }
+ 
+ 
+ .summary-list li {
   margin-bottom: 5px; /* Reduce margin */
   color: #fcbf24;
-}
-
-#Exercise .header {
+ }
+ 
+ 
+ #Exercise .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20px; /* Add some top margin to bring it down */
   margin-bottom: 20px; /* Optional: Add bottom margin to space out content */
-}
-
-#Exercise .workout-summary {
+ }
+ 
+ 
+ #Exercise .workout-summary {
   margin-top: 20px; /* Adds space above the summary */
-}
-
-/* Modal form - hidden by default */
-.form-popup {
+ }
+ 
+ 
+ /* Modal form - hidden by default */
+ .form-popup {
   display: none; /* Hidden by default */
   position: fixed;
   top: 50%;
@@ -603,39 +675,44 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Optional: Styling for form elements */
-.form-container {
+ }
+ 
+ 
+ /* Optional: Styling for form elements */
+ .form-container {
   display: flex;
   flex-direction: column;
-}
-
-.form-container label {
+ }
+ 
+ 
+ .form-container label {
   font-size: 16px;
   font-weight: bold;
   color: black; /* Set font color to black */
   margin-bottom: 5px; /* Add space below the label */
-}
-
-.form-container input, 
-.form-container select {
+ }
+ 
+ 
+ .form-container input,
+ .form-container select {
   margin-bottom: 15px; /* Add space below input and select elements */
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.form-container h2 {
+ }
+ 
+ 
+ .form-container h2 {
   font-size: 18px;
   color: black; /* Set font color to black for heading */
   margin-bottom: 20px; /* Add space below heading */
   text-align: center;
-}
-
-/* Optional: Styling for buttons in the modal */
-.form-container .btn {
+ }
+ 
+ 
+ /* Optional: Styling for buttons in the modal */
+ .form-container .btn {
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -643,25 +720,35 @@ body {
   cursor: pointer;
   width: 100%;
   margin-bottom: 10px;
-}
-
-.form-container .cancel {
+ }
+ 
+ 
+ .form-container .cancel {
   background-color: red;
-}
-
-/* Hover effect for buttons */
-.form-container .btn:hover {
+ }
+ 
+ 
+ /* Hover effect for buttons */
+ .form-container .btn:hover {
   opacity: 1;
-}
-
-
-
-
-
-
-
-/*all button color change*/
-.tablink.active {
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*all button color change*/
+ .tablink.active {
   background-color: #8C52FF;
   color: white; /* Optional for better readability */
-}
+ }
+ 
