@@ -21,11 +21,13 @@
                   <div class="section goals-box">
                      <h2>Today's Goals</h2>
                      <ul id="goals-list" class="goals-list">
-                        <li><span>Complete a calisthenics workout</span> <button onclick="removeGoal(this)">×</button></li>
-                        <li><span>Eat 50 grams of protein</span> <button onclick="removeGoal(this)">×</button></li>
+                        <li><span>Complete a calisthenics workout ~~~~~ 2024-11-19 12:43</span> <button onclick="removeGoal(this)">×</button></li>
+                        <li><span>Eat 50 grams of protein ~~~~~ 2024-12-05 15:45</span> <button onclick="removeGoal(this)">×</button></li>
                      </ul>
                      <!-- Input to add new goals -->
                      <input type="text" id="newGoal" placeholder="New goal...">
+                     <input type="date" id="goalDate" placeholder="Select date">
+                     <input type="time" id="goalTime" placeholder="Select time">
                      <button onclick="addGoal()">Add Goal</button>
                   </div>
                   <!-- Section: Articles for You with Search Icon -->
@@ -322,7 +324,7 @@
                      <div class="large-number">72</div>
                      <div class="small-text">grams of protein</div>
                   </div>
-                  <!-- <button onclick="editNutrition()" class="edit-nutrition-btn">Edit Nutrition</button> -->
+                  <button onclick="editNutrition()" class="edit-nutrition-btn">Edit Nutrition</button>
                </div>
                <!-- Table Image at the Bottom -->
                <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
@@ -332,6 +334,9 @@
                 </div>
                 <img src="calgraph.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px; cursor: pointer; transition: border-color 0.3s;"
                      onclick="openTab('ToDo', this)" class="image-tint">
+                     <button onclick="shareToInstagram()" class="share-instagram-btn">
+                        <img src="images/instagram.jpg" alt="Instagram" style="width: 30px; height: 30px;">
+                     </button>
              </div>
                <!-- Hidden Text Displayed on Image Click -->
                <div id="txt" style="display: none; margin-top: 10px;">
@@ -593,14 +598,24 @@
          
          
            function addGoal() {
-               const newGoalText = document.getElementById("newGoal").value;
-               if (newGoalText.trim() !== "") {
-                   const li = document.createElement("li");
-                   li.innerHTML = `<span>${newGoalText}</span> <button onclick="removeGoal(this)">×</button>`;
-                   document.getElementById("goals-list").appendChild(li);
-                   document.getElementById("newGoal").value = ''; // Clear the input field
-               }
-           }
+    const newGoalText = document.getElementById("newGoal").value;
+    const goalDate = document.getElementById("goalDate").value;
+    const goalTime = document.getElementById("goalTime").value;
+
+    if (newGoalText.trim() !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${newGoalText} ~~~~~ ${goalDate} ${goalTime}</span>
+            <button onclick="removeGoal(this)">×</button>
+        `;
+        document.getElementById("goals-list").appendChild(li);
+
+        // Clear input fields after adding
+        document.getElementById("newGoal").value = '';
+        document.getElementById("goalDate").value = '';
+        document.getElementById("goalTime").value = '';
+    }
+}
          
          
          
@@ -618,6 +633,18 @@
     
     // Scroll to the top in case the form is off-screen
     document.getElementById("ToDo").scrollTop = 0;
+}
+
+function shareToInstagram() {
+    const toast = document.createElement("div");
+    toast.className = "instagram-toast";
+    toast.innerText = "Shared to Instagram!";
+    document.body.appendChild(toast);
+
+    // Remove the toast after 3 seconds
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
 }
       </script>
    </body>
