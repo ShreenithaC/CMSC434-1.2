@@ -328,16 +328,16 @@
                </div>
                <!-- Table Image at the Bottom -->
                <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
-                <div style="text-align: left; max-width: 600px; margin: 0 auto;">
-                   <h2 style="margin-bottom: 5px; font-size: 24px;">Average 1,598 Cal</h2>
-                   <h4 style="margin-top: 0; font-size: 18px; color: gray;">Oct 27 - Nov 2, 2024</h4>
-                </div>
-                <img src="calgraph.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px; cursor: pointer; transition: border-color 0.3s;"
+                  <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                     <h2 style="margin-bottom: 5px; font-size: 24px;">Average 1,598 Cal</h2>
+                     <h4 style="margin-top: 0; font-size: 18px; color: gray;">Oct 27 - Nov 2, 2024</h4>
+                  </div>
+                  <img src="calgraph.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px; cursor: pointer; transition: border-color 0.3s;"
                      onclick="openTab('ToDo', this)" class="image-tint">
-                     <button onclick="shareToInstagram()" class="share-instagram-btn">
-                        <img src="images/instagram.jpg" alt="Instagram" style="width: 30px; height: 30px;">
-                     </button>
-             </div>
+                  <button onclick="shareToInstagram()" class="share-instagram-btn">
+                  <img src="images/instagram.jpg" alt="Instagram" style="width: 30px; height: 30px;">
+                  </button>
+               </div>
                <!-- Hidden Text Displayed on Image Click -->
                <div id="txt" style="display: none; margin-top: 10px;">
                   <button id="close" style="background: none; border: none; font-size: 18px; color: white; cursor: pointer;">&times;</button>
@@ -410,21 +410,26 @@
                <!-- Header for Today's Workout -->
                <div class="header">
                   <h1>Today's Workout</h1>
-                  <button class="start-workout-btn">+ Start Workout</button> <!-- Start workout button -->
+                  <!-- Timer Display -->
+                  <div class="timer">
+                     <span id="timerDisplay">00:00:00</span>
+                     <button onclick="startTimer()" id="timerControlBtn" class="timer-btn">Start</button>
+                     <button onclick="resetTimer()" class="timer-btn">Reset</button> <!-- Reset Button -->
+                  </div>
                </div>
                <!-- Workout Cards -->
                <div class="workout-cards">
-                  <div class="workout-card">
-                     <p id="workout1">35 min jog</p>
+                  <div class="workout-card" onclick="openExerciseImage('images/bench-press.jpg')">
+                     <p id="workout1">2 x 10 Bench Press</p>
                   </div>
-                  <div class="workout-card">
-                     <p id="workout2">3 x 11 Lunges</p>
+                  <div class="workout-card" onclick="openExerciseImage('images/deadlift.jpg')">
+                     <p id="workout2">4 x 10 Deadlift</p>
                   </div>
-                  <div class="workout-card">
-                     <p id="workout3">3 x 15 Glute Bridge</p>
+                  <div class="workout-card" onclick="openExerciseImage('images/squats.jpg')">
+                     <p id="workout3">4 x 10 Squats</p>
                   </div>
-                  <div class="workout-card">
-                     <p id="workout4">4 x 15 Squats</p>
+                  <div class="workout-card" onclick="openExerciseImage('images/bicep-curls.jpg')">
+                     <p id="workout4">3 x 15 Bicep Curls</p>
                   </div>
                </div>
                <!-- Workout Summary Section -->
@@ -450,6 +455,12 @@
                <button class="tablink" onclick="openTab('Exercise', this)">Exercise</button>
             </div>
          </div>
+
+         <!-- Add the Image Overlay for Exercise Explanation right after 'everything' div -->
+<div id="exerciseImageOverlay" class="overlay">
+   <span class="close" onclick="closeExerciseImage()">&times;</span>
+   <img id="exerciseImage" class="overlay-content" src="" alt="Exercise Explanation">
+</div>
       </div>
       <script>
          const workoutPlans = {
@@ -598,23 +609,23 @@
          
          
            function addGoal() {
-    const newGoalText = document.getElementById("newGoal").value;
-    const goalDate = document.getElementById("goalDate").value;
-    const goalTime = document.getElementById("goalTime").value;
-
-    if (newGoalText.trim() !== "") {
-        const li = document.createElement("li");
-        li.innerHTML = `
+         const newGoalText = document.getElementById("newGoal").value;
+         const goalDate = document.getElementById("goalDate").value;
+         const goalTime = document.getElementById("goalTime").value;
+         
+         if (newGoalText.trim() !== "") {
+         const li = document.createElement("li");
+         li.innerHTML = `
             <span>${newGoalText} ~~~~~ ${goalDate} ${goalTime}</span>
             <button onclick="removeGoal(this)">×</button>
-        `;
-        document.getElementById("goals-list").appendChild(li);
-
-        document.getElementById("newGoal").value = '';
-        document.getElementById("goalDate").value = '';
-        document.getElementById("goalTime").value = '';
-    }
-}
+         `;
+         document.getElementById("goals-list").appendChild(li);
+         
+         document.getElementById("newGoal").value = '';
+         document.getElementById("goalDate").value = '';
+         document.getElementById("goalTime").value = '';
+         }
+         }
          
          
          
@@ -622,28 +633,80 @@
            function removeGoal(element) {
                element.parentElement.remove();
            }
-
+         
            function editNutrition() {
-    document.getElementById("defaultOpen").click(); 
-
-    // Directly show the Nutrition tab
-    openTab('ToDo', document.querySelector('.tablink[onclick*="ToDo"]'));
-    
-    // Scroll to the top in case the form is off-screen
-    document.getElementById("ToDo").scrollTop = 0;
-}
-
-function shareToInstagram() {
-    const toast = document.createElement("div");
-    toast.className = "instagram-toast";
-    toast.innerText = "Shared to Instagram!";
-    document.body.appendChild(toast);
-
-    // Remove the toast after 3 seconds
-    setTimeout(() => {
-        toast.remove();
-    }, 3000);
-}
+         document.getElementById("defaultOpen").click(); 
+         
+         // Directly show the Nutrition tab
+         openTab('ToDo', document.querySelector('.tablink[onclick*="ToDo"]'));
+         
+         // Scroll to the top in case the form is off-screen
+         document.getElementById("ToDo").scrollTop = 0;
+         }
+         
+         function shareToInstagram() {
+         const toast = document.createElement("div");
+         toast.className = "instagram-toast";
+         toast.innerText = "Shared to Instagram!";
+         document.body.appendChild(toast);
+         
+         // Remove the toast after 3 seconds
+         setTimeout(() => {
+         toast.remove();
+         }, 3000);
+         }
+         
+         let timerInterval;
+         let elapsedTime = 0;
+         
+         function startTimer() {
+         const button = document.getElementById("timerControlBtn");
+         
+         if (button.textContent === "Start") {
+         button.textContent = "Pause";
+         timerInterval = setInterval(() => {
+         elapsedTime += 1;
+         updateTimerDisplay();
+         }, 1000);
+         } else if (button.textContent === "Pause") {
+         button.textContent = "Resume";
+         clearInterval(timerInterval);
+         } else {
+         button.textContent = "Pause";
+         timerInterval = setInterval(() => {
+         elapsedTime += 1;
+         updateTimerDisplay();
+         }, 1000);
+         }
+         }
+         
+         function updateTimerDisplay() {
+         const hours = Math.floor(elapsedTime / 3600).toString().padStart(2, '0');
+         const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
+         const seconds = (elapsedTime % 60).toString().padStart(2, '0');
+         document.getElementById("timerDisplay").textContent = `${hours}:${minutes}:${seconds}`;
+         }
+         
+         function resetTimer() {
+         clearInterval(timerInterval);
+         elapsedTime = 0;
+         updateTimerDisplay();
+         document.getElementById("timerControlBtn").textContent = "Start";
+         }
+         
+         // Function to open the overlay with the exercise image
+         function openExerciseImage(imagePath) {
+         const overlay = document.getElementById("exerciseImageOverlay");
+         const img = document.getElementById("exerciseImage");
+         img.src = imagePath;
+         overlay.style.display = "block";
+         }
+         
+         // Function to close the overlay
+         function closeExerciseImage() {
+         const overlay = document.getElementById("exerciseImageOverlay");
+         overlay.style.display = "none";
+         }
       </script>
    </body>
 </html>
