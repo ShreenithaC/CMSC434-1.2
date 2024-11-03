@@ -555,10 +555,10 @@
            }
            tablinks = document.getElementsByClassName("tablink");
            for (i = 0; i < tablinks.length; i++) {
-               tablinks[i].classList.remove("active"); // Remove active class from all buttons
+               tablinks[i].classList.remove("active"); 
            }
            document.getElementById(tabName).style.display = "block";
-           elmnt.classList.add("active"); // Add active class to clicked button
+           elmnt.classList.add("active"); 
          }
          
          
@@ -610,7 +610,6 @@
         `;
         document.getElementById("goals-list").appendChild(li);
 
-        // Clear input fields after adding
         document.getElementById("newGoal").value = '';
         document.getElementById("goalDate").value = '';
         document.getElementById("goalTime").value = '';
@@ -625,8 +624,7 @@
            }
 
            function editNutrition() {
-    // Simulate clicking on the Nutrition tab to switch views
-    document.getElementById("defaultOpen").click(); // Adjust if the Nutrition tab isn’t the default
+    document.getElementById("defaultOpen").click(); 
 
     // Directly show the Nutrition tab
     openTab('ToDo', document.querySelector('.tablink[onclick*="ToDo"]'));
