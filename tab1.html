@@ -1,738 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="styles.css">
-      <title>Tabs Example</title>
-   </head>
-   <body>
-      <div id="wrapped" class="allContent">
-         <div class="everything">
-            <!--W3 Schools' code was used to create the general layout and buttons on the bottom. https://www.w3schools.com/howto/howto_js_tab_header.asp-->
-            <!-- Updated Tab 1: Text -->
-            <div id="Text" class="tabcontent">
-               <div class="scrollable-content">
-                  <!-- Top Header with Username -->
-                  <div class="header">
-                     <h1 class="greeting">Hey Andy</h1>
-                  </div>
-                  <!-- Section: Today's Goals with Box -->
-                  <div class="section goals-box">
-                     <h2>Today's Goals</h2>
-                     <ul id="goals-list" class="goals-list">
+  <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="styles.css">
+     <title>Tabs Example</title>
+  </head>
+  <body>
+     <div id="wrapped" class="allContent">
+        <div class="everything">
+           <!--W3 Schools' code was used to create the general layout and buttons on the bottom. https://www.w3schools.com/howto/howto_js_tab_header.asp-->
+           <!-- Updated Tab 1: Text -->
+           <div id="Text" class="tabcontent">
+            <div class="scrollable-content">
+                
+                <div class="header">
+                    <h1 class="greeting" id="greeting">Hey there</h1>
+                </div>
+                
+                <script>
+                    function updateGoalsGreeting() {
+                        const name = localStorage.getItem('userName') || "there";
+                        document.getElementById('greeting').textContent = `Hey ${name}`;
+                    }
+        
+                    // Call updateGoalsGreeting when the page loads
+                    window.addEventListener('load', updateGoalsGreeting);
+                </script>
+        
+                <!-- Section: Today's Goals with Box -->
+                <div class="section goals-box">
+                    <h2>Today's Goals</h2>
+                    <ul id="goals-list" class="goals-list">
                         <li><span>Complete a calisthenics workout ~~~~~ 2024-11-19 12:43</span> <button onclick="removeGoal(this)">×</button></li>
                         <li><span>Eat 50 grams of protein ~~~~~ 2024-12-05 15:45</span> <button onclick="removeGoal(this)">×</button></li>
-                     </ul>
-                     <!-- Input to add new goals -->
-                     <input type="text" id="newGoal" placeholder="New goal...">
-                     <input type="date" id="goalDate" placeholder="Select date">
-                     <input type="time" id="goalTime" placeholder="Select time">
-                     <button onclick="addGoal()">Add Goal</button>
-                  </div>
-                  <!-- Section: Articles for You with Search Icon -->
-                  <div class="section articles">
-                     <div style="display: flex; align-items: center;">
+                    </ul>
+                    <!-- Input to add new goals with pop-up keyboard functionality -->
+                    <input type="text" id="newGoal" placeholder="New goal..." onclick="showKeyboard()" onblur="hideKeyboard()">
+                    <input type="date" id="goalDate" placeholder="Select date">
+                    <input type="time" id="goalTime" placeholder="Select time">
+                    <button onclick="addGoal()">Add Goal</button>
+                </div>
+        
+                <!-- Section: Articles for You with Search Icon -->
+                <div class="section articles">
+                    <div style="display: flex; align-items: center;">
                         <h2>Articles for You</h2>
-                        <span class="search-icon" onclick="toggleSearch('article')" style="margin-left: 10px; cursor: pointer;">&#x1F50D;</span> <!-- Unicode for magnifying glass -->
+                        <span class="search-icon" onclick="toggleSearch('article')" style="margin-left: 10px; cursor: pointer;">&#x1F50D;</span>
                         <input type="text" id="articleSearch" placeholder="Search articles..." onkeyup="searchContent('article')" style="display: none; margin-left: 10px;">
-                     </div>
-                     <div class="article-grid" id="article-grid">
+                    </div>
+                    <div class="article-grid" id="article-grid">
                         <div class="article-item">
-                           <a href="javascript:void(0);" onclick="openImage('images/train-5k.jpg')">
-                           How to run a 5K <span class="link-icon">&#x21E8;</span>
-                           <img src="images/running.jpg" alt="How to run a 5K" class="article-image">
-                           </a>
+                            <a href="javascript:void(0);" onclick="openImage('images/train-5k.jpg')">
+                                How to run a 5K <span class="link-icon">&#x21E8;</span>
+                                <img src="images/running.jpg" alt="How to run a 5K" class="article-image">
+                            </a>
                         </div>
                         <div class="article-item">
-                           <a href="javascript:void(0);" onclick="openImage('images/fasted-cardio.jpg')">
-                           Fasted Cardio <span class="link-icon">&#x21E8;</span>
-                           <img src="images/cardio.jpg" alt="Fasted Cardio" class="article-image">
-                           </a>
+                            <a href="javascript:void(0);" onclick="openImage('images/fasted-cardio.jpg')">
+                                Fasted Cardio <span class="link-icon">&#x21E8;</span>
+                                <img src="images/cardio.jpg" alt="Fasted Cardio" class="article-image">
+                            </a>
                         </div>
                         <div class="article-item">
-                           <a href="javascript:void(0);" onclick="openImage('images/journaling.jpg')">
-                           Journaling <span class="link-icon">&#x21E8;</span>
-                           <img src="images/journal.jpg" alt="Journaling" class="article-image">
-                           </a>
+                            <a href="javascript:void(0);" onclick="openImage('images/journaling.jpg')">
+                                Journaling <span class="link-icon">&#x21E8;</span>
+                                <img src="images/journal.jpg" alt="Journaling" class="article-image">
+                            </a>
                         </div>
-                     </div>
-                  </div>
-                  <!-- Section: Recipes for You with Search Icon -->
-                  <div class="section recipes">
-                     <div style="display: flex; align-items: center;">
+                    </div>
+                </div>
+        
+                <!-- Section: Recipes for You with Search Icon -->
+                <div class="section recipes">
+                    <div style="display: flex; align-items: center;">
                         <h2>Recipes for You</h2>
-                        <span class="search-icon" onclick="toggleSearch('recipe')" style="margin-left: 10px; cursor: pointer;">&#x1F50D;</span> <!-- Unicode for magnifying glass -->
+                        <span class="search-icon" onclick="toggleSearch('recipe')" style="margin-left: 10px; cursor: pointer;">&#x1F50D;</span>
                         <input type="text" id="recipeSearch" placeholder="Search recipes..." onkeyup="searchContent('recipe')" style="display: none; margin-left: 10px;">
-                     </div>
-                     <div class="recipe-grid" id="recipe-grid">
+                    </div>
+                    <div class="recipe-grid" id="recipe-grid">
                         <div class="recipe-item">
-                           <a href="javascript:void(0);" onclick="openImage('images/penne-recipe.jpg')">
-                           Protein-Filled Pasta <span class="link-icon">&#x21E8;</span>
-                           <img src="images/protein.jpg" alt="Protein-filled meals" class="recipe-image">
-                           </a>
+                            <a href="javascript:void(0);" onclick="openImage('images/penne-recipe.jpg')">
+                                Protein-Filled Pasta <span class="link-icon">&#x21E8;</span>
+                                <img src="images/protein.jpg" alt="Protein-filled meals" class="recipe-image">
+                            </a>
                         </div>
                         <div class="recipe-item">
-                           <a href="javascript:void(0);" onclick="openImage('images/chicken-parm.jpg')">
-                           Chicken Parmesean <span class="link-icon">&#x21E8;</span>
-                           <img src="images/chickenparm.jpg" alt="Chicken Parmesan" class="recipe-image">
-                           </a>
+                            <a href="javascript:void(0);" onclick="openImage('images/chicken-parm.jpg')">
+                                Chicken Parmesan <span class="link-icon">&#x21E8;</span>
+                                <img src="images/chickenparm.jpg" alt="Chicken Parmesan" class="recipe-image">
+                            </a>
                         </div>
                         <div class="recipe-item">
-                           <a href="javascript:void(0);" onclick="openImage('images/veg-stirfry.jpg')">
-                           Veggie Stirfry <span class="link-icon">&#x21E8;</span>
-                           <img src="images/stirfry.jpg" alt="Vegetable Stir Fry" class="recipe-image">
-                           </a>
+                            <a href="javascript:void(0);" onclick="openImage('images/veg-stirfry.jpg')">
+                                Veggie Stir Fry <span class="link-icon">&#x21E8;</span>
+                                <img src="images/stirfry.jpg" alt="Vegetable Stir Fry" class="recipe-image">
+                            </a>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-            <div id="image-container" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; max-width: 80%; max-height: 80%; overflow: auto; padding: 20px; border-radius: 8px;">
-                <img id="image-viewer" src="" alt="Recipe Image" style="max-width: 100%; max-height: 60vh; display: block; margin: 0 auto;"> <!-- Set max height for image -->
-                <button onclick="closeImage()" style="margin-top: 10px;">Close</button> <!-- Close button to hide the image -->
-            </div>
+        </div>
+        <!-- Iframe for Image Display -->
+<div id="image-container" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; max-width: 80%; max-height: 80%; overflow: auto; padding: 20px; border-radius: 8px;">
+    <img id="image-viewer" src="" alt="Recipe Image" style="max-width: 100%; max-height: 60vh; display: block; margin: 0 auto;"> 
+    <button onclick="closeImage()" style="margin-top: 10px;">Close</button> 
+</div>
+
+<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div> 
+
+<script>
+    function openImage(imageUrl) {
+        // Set the img source to the image URL and display it
+        document.getElementById('image-viewer').src = imageUrl;
+        document.getElementById('image-container').style.display = 'block'; 
+        document.getElementById('overlay').style.display = 'block'; 
+    }
+
+    function closeImage() {
+        // Hide the image and reset the source
+        document.getElementById('image-container').style.display = 'none'; 
+        document.getElementById('overlay').style.display = 'none'; 
+        document.getElementById('image-viewer').src = ''; 
+    }
+
+    // Close the image popup if overlay is clicked
+    document.getElementById('overlay').onclick = function() {
+        closeImage();
+    }
+</script>
+        
+        <!-- Keyboard Pop-up Modal -->
+        <div id="keyboardModal" style="display: none; position: fixed; top: 80%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 8px; z-index: 1000;">
+            <img src="images/pop_up_keyboard.jpeg" alt="Keyboard" style="width: 600px; height: 300px;"> 
+            <button onclick="hideKeyboard()" style="margin-top: 10px; display: block; background-color: white; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Close Keyboard</button>
+        </div>
+        
+        <script>
+            // Function to show the keyboard pop-up
+            function showKeyboard() {
+                document.getElementById('keyboardModal').style.display = 'block';
+            }
+        
+            // Function to hide the keyboard pop-up
+            function hideKeyboard() {
+                document.getElementById('keyboardModal').style.display = 'none';
+            }
+        
+            function toggleSearch(section) {
+                const searchBox = document.getElementById(section + 'Search');
+                searchBox.style.display = searchBox.style.display === 'none' ? 'block' : 'none';
+                searchBox.focus();
+            }
+        
+            function searchContent(section) {
+                const input = document.getElementById(section + 'Search').value.toLowerCase();
+                const items = document.querySelectorAll(`#${section}-grid .${section}-item`);
+        
+                items.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(input)) {
+                        item.style.backgroundColor = '#ffeb3b'; 
+                        item.style.border = '2px solid #ffa000'; 
+                        item.style.boxShadow = '0px 0px 10px rgba(255, 160, 0, 0.5)'; 
+                        item.style.borderRadius = '8px'; 
+                    } else {
+                        item.style.backgroundColor = ''; 
+                        item.style.border = ''; 
+                        item.style.boxShadow = ''; 
+                        item.style.borderRadius = ''; 
+                    }
+                });
+            }
+        </script>
+
+
+
+
+
+           <!-- Tab 2: Choices -->
+           <div id="Choices" class="tabcontent">
+            <h1 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Daily Reflection</h1>
+        
+            <!-- Reflection Form -->
+            <form style="display: flex; flex-direction: column; align-items: center;">
+                <!-- Reflection Text Area with pop-up keyboard functionality -->
+                <div style="margin-bottom: 20px; width: 80%;">
+                    <label for="reflection" style="font-weight: bold; font-size: 18px; display: block; text-align: left; margin-bottom: 10px;">Your Reflection:</label>
+                    <textarea id="reflection" rows="4" placeholder="Write your thoughts here..." style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;" onclick="showKeyboard()" onblur="hideKeyboard()"></textarea>
+                </div>
+        
+                 <!-- Mood Selection with Stars -->
+                 <div style="margin-bottom: 20px; text-align: center;">
+                    <label for="mood" style="font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Your Mood:</label>
+                    <div id="starRating" style="display: flex; gap: 5px; justify-content: center;">
+                       <span class="star" data-value="1">&#9733;</span>
+                       <span class="star" data-value="2">&#9733;</span>
+                       <span class="star" data-value="3">&#9733;</span>
+                       <span class="star" data-value="4">&#9733;</span>
+                       <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                    <input type="hidden" id="mood" value="0">
+                 </div>
+                 <!-- Sleep Start and End Time -->
+                 <div style="margin-bottom: 20px; width: 80%; text-align: left;">
+                    <label for="sleepStart" style="font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Sleep Start Time:</label>
+                    <input type="time" id="sleepStart" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
+                 </div>
+                 <div style="margin-bottom: 20px; width: 80%; text-align: left;">
+                    <label for="sleepEnd" style="font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Sleep End Time:</label>
+                    <input type="time" id="sleepEnd" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
+                 </div>
+                 <!-- Submit Button -->
+                 <button type="button" onclick="submitReflection()" style="padding: 10px 20px; font-size: 16px; border-radius: 5px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+                 Submit Reflection
+                 </button>
+              </form>
+              <!-- Result Display -->
+              <p id="reflectionResult" style="text-align: center; margin-top: 20px; font-size: 18px;"></p>
+           </div>
+           <div id="keyboardModal" style="display: none; position: fixed; top: 80%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 8px; z-index: 1000;">
+            <img src="pop_up_keyboard.jpg" alt="Keyboard" style="width: 300px; height: 150px;"> 
+            <button onclick="hideKeyboard()" style="margin-top: 10px; display: block; background-color: white; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Close Keyboard</button>
+        </div>
+           <script>
+            function showKeyboard() {
+            document.getElementById('keyboardModal').style.display = 'block';
+        }
+
+        // Function to hide the keyboard pop-up
+        function hideKeyboard() {
+            document.getElementById('keyboardModal').style.display = 'none';
+        }
+              // Star Rating Functionality
+              document.querySelectorAll('.star').forEach(star => {
+                  star.addEventListener('click', function() {
+                      const rating = this.getAttribute('data-value');
+                      document.getElementById('mood').value = rating;
+                      highlightStars(rating);
+                  });
+              });
+             
+              function highlightStars(rating) {
+                  document.querySelectorAll('.star').forEach(star => {
+                      star.style.color = star.getAttribute('data-value') <= rating ? 'gold' : '#ccc';
+                  });
+              }
+             
+              // Function to calculate sleep duration
+              function calculateSleepDuration(startTime, endTime) {
+                  const start = new Date(`1970-01-01T${startTime}:00`);
+                  const end = new Date(`1970-01-01T${endTime}:00`);
+             
+                  if (end < start) {
+                      end.setDate(end.getDate() + 1); 
+                  }
+             
+                  const diffMs = end - start;
+                  const diffHrs = Math.floor(diffMs / (1000 * 60 * 60));
+                  const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+             
+                  return `${diffHrs} hours and ${diffMins} minutes`;
+              }
+             
+              // Function to handle reflection submission
+              function submitReflection() {
+                  const reflection = document.getElementById("reflection").value;
+                  const mood = document.getElementById("mood").value;
+                  const sleepStart = document.getElementById("sleepStart").value;
+                  const sleepEnd = document.getElementById("sleepEnd").value;
+             
+                  let sleepDuration = "N/A";
+                  if (sleepStart && sleepEnd) {
+                      sleepDuration = calculateSleepDuration(sleepStart, sleepEnd);
+                  }
+             
+                  document.getElementById("reflectionResult").innerText = `
+                      Reflection: ${reflection}
+                      Mood: ${mood} stars
+                      Sleep Duration: ${sleepDuration}
+                  `;
+              }
+           </script>
+
+
+
+
+
+
+           <!-- Tab 3: Nutrition -->
+           <div id="ToDo" class="tabcontent">
+            <h1 style="color: white; text-align: center; font-size: 24px; margin-bottom: 20px;">It's Eating Time!</h1>
             
-            <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div> <!-- Overlay -->
-            
-            <script>
-                function openImage(imageUrl) {
-                    // Set the img source to the image URL and display it
-                    document.getElementById('image-viewer').src = imageUrl;
-                    document.getElementById('image-container').style.display = 'block'; // Show the container
-                    document.getElementById('overlay').style.display = 'block'; // Show overlay
-                }
-            
-                function closeImage() {
-                    // Hide the image and reset the source
-                    document.getElementById('image-container').style.display = 'none'; // Hide the container
-                    document.getElementById('overlay').style.display = 'none'; // Hide overlay
-                    document.getElementById('image-viewer').src = ''; // Reset the src to stop the image from loading
-                }
-            
-                // Close the image popup if overlay is clicked
-                document.getElementById('overlay').onclick = function() {
-                    closeImage();
-                }
-            </script>
-            <script>
-               function toggleSearch(section) {
-                   const searchBox = document.getElementById(section + 'Search');
-                   searchBox.style.display = searchBox.style.display === 'none' ? 'block' : 'none';
-                   searchBox.focus();
-               }
-               
-               function searchContent(section) {
-                   const input = document.getElementById(section + 'Search').value.toLowerCase();
-                   const items = document.querySelectorAll(`#${section}-grid .${section}-item`);
-               
-                   items.forEach(item => {
-                       const text = item.textContent.toLowerCase();
-                       if (text.includes(input)) {
-                           item.style.backgroundColor = '#ffeb3b'; // Light yellow background for matching items
-                           item.style.border = '2px solid #ffa000'; // Orange border to enhance visibility
-                           item.style.boxShadow = '0px 0px 10px rgba(255, 160, 0, 0.5)'; // Shadow effect for better highlight
-                           item.style.borderRadius = '8px'; // Rounding corners for a nicer appearance
-                       } else {
-                           item.style.backgroundColor = ''; // Remove background color
-                           item.style.border = ''; // Remove border
-                           item.style.boxShadow = ''; // Remove shadow
-                           item.style.borderRadius = ''; // Remove rounded corners
-                       }
-                   });
-               }
-            </script>
-            <!-- Tab 2: Choices -->
-            <div id="Choices" class="tabcontent">
-               <h1 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Daily Reflection</h1>
-               <!-- Reflection Form -->
-               <form style="display: flex; flex-direction: column; align-items: center;">
-                  <!-- Reflection Text Area -->
-                  <div style="margin-bottom: 20px; width: 80%;">
-                     <label for="reflection" style="font-weight: bold; font-size: 18px; display: block; text-align: left; margin-bottom: 10px;">Your Reflection:</label>
-                     <textarea id="reflection" rows="4" placeholder="Write your thoughts here..." style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-                  </div>
-                  <!-- Mood Selection with Stars -->
-                  <div style="margin-bottom: 20px; text-align: center;">
-                     <label for="mood" style="font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Your Mood:</label>
-                     <div id="starRating" style="display: flex; gap: 5px; justify-content: center;">
-                        <span class="star" data-value="1">&#9733;</span>
-                        <span class="star" data-value="2">&#9733;</span>
-                        <span class="star" data-value="3">&#9733;</span>
-                        <span class="star" data-value="4">&#9733;</span>
-                        <span class="star" data-value="5">&#9733;</span>
-                     </div>
-                     <input type="hidden" id="mood" value="0">
-                  </div>
-                  <!-- Sleep Start and End Time -->
-                  <div style="margin-bottom: 20px; width: 80%; text-align: left;">
-                     <label for="sleepStart" style="font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Sleep Start Time:</label>
-                     <input type="time" id="sleepStart" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
-                  </div>
-                  <div style="margin-bottom: 20px; width: 80%; text-align: left;">
-                     <label for="sleepEnd" style="font-weight: bold; font-size: 18px; display: block; margin-bottom: 10px;">Sleep End Time:</label>
-                     <input type="time" id="sleepEnd" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc;">
-                  </div>
-                  <!-- Submit Button -->
-                  <button type="button" onclick="submitReflection()" style="padding: 10px 20px; font-size: 16px; border-radius: 5px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
-                  Submit Reflection
-                  </button>
-               </form>
-               <!-- Result Display -->
-               <p id="reflectionResult" style="text-align: center; margin-top: 20px; font-size: 18px;"></p>
-            </div>
-            <script>
-               // Star Rating Functionality
-               document.querySelectorAll('.star').forEach(star => {
-                   star.addEventListener('click', function() {
-                       const rating = this.getAttribute('data-value');
-                       document.getElementById('mood').value = rating;
-                       highlightStars(rating);
-                   });
-               });
-               
-               function highlightStars(rating) {
-                   document.querySelectorAll('.star').forEach(star => {
-                       star.style.color = star.getAttribute('data-value') <= rating ? 'gold' : '#ccc';
-                   });
-               }
-               
-               // Function to calculate sleep duration
-               function calculateSleepDuration(startTime, endTime) {
-                   const start = new Date(`1970-01-01T${startTime}:00`);
-                   const end = new Date(`1970-01-01T${endTime}:00`);
-               
-                   if (end < start) {
-                       end.setDate(end.getDate() + 1); // Adjust for overnight sleep
-                   }
-               
-                   const diffMs = end - start;
-                   const diffHrs = Math.floor(diffMs / (1000 * 60 * 60));
-                   const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-               
-                   return `${diffHrs} hours and ${diffMins} minutes`;
-               }
-               
-               // Function to handle reflection submission
-               function submitReflection() {
-                   const reflection = document.getElementById("reflection").value;
-                   const mood = document.getElementById("mood").value;
-                   const sleepStart = document.getElementById("sleepStart").value;
-                   const sleepEnd = document.getElementById("sleepEnd").value;
-               
-                   let sleepDuration = "N/A";
-                   if (sleepStart && sleepEnd) {
-                       sleepDuration = calculateSleepDuration(sleepStart, sleepEnd);
-                   }
-               
-                   document.getElementById("reflectionResult").innerText = `
-                       Reflection: ${reflection}
-                       Mood: ${mood} stars
-                       Sleep Duration: ${sleepDuration}
-                   `;
-               }
-            </script>
-            <!-- Tab 3: Nutrition -->
-            <div id="ToDo" class="tabcontent">
-               <h1 style="color: white; text-align: center; font-size: 24px; margin-bottom: 20px;">Good Morning Andy!</h1>
-               <!-- Section for Caloric and Macronutrient Progress -->
-               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;">
-                  <div style="background-color: #a463ff; color: white; padding: 10px; border-radius: 50%; text-align: center;">
-                     1000/2000 Kcal
-                  </div>
-                  <div style="flex-grow: 1; margin-left: 20px;">
-                     <div style="display: flex; align-items: center;">
+            <!-- Section for Caloric and Macronutrient Progress -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;">
+                <div style="background-color: #a463ff; color: white; padding: 10px; border-radius: 50%; text-align: center;">
+                    1000/2000 Kcal
+                </div>
+                <div style="flex-grow: 1; margin-left: 20px;">
+                    <div style="display: flex; align-items: center;">
                         <div style="color: #fcbf24; width: 50px;">Carbs</div>
                         <div style="background-color: #333; width: 100%; height: 10px; border-radius: 5px; margin-left: 10px; position: relative;">
-                           <div style="background-color: #fcbf24; width: 60%; height: 100%; border-radius: 5px;"></div>
+                            <div style="background-color: #fcbf24; width: 60%; height: 100%; border-radius: 5px;"></div>
                         </div>
-                     </div>
-                     <div style="display: flex; align-items: center; margin-top: 10px;">
+                    </div>
+                    <div style="display: flex; align-items: center; margin-top: 10px;">
                         <div style="color: #fcbf24; width: 50px;">Protein</div>
                         <div style="background-color: #333; width: 100%; height: 10px; border-radius: 5px; margin-left: 10px; position: relative;">
-                           <div style="background-color: #fcbf24; width: 45%; height: 100%; border-radius: 5px;"></div>
+                            <div style="background-color: #fcbf24; width: 45%; height: 100%; border-radius: 5px;"></div>
                         </div>
-                     </div>
-                     <div style="display: flex; align-items: center; margin-top: 10px;">
+                    </div>
+                    <div style="display: flex; align-items: center; margin-top: 10px;">
                         <div style="color: #fcbf24; width: 50px;">Fats</div>
                         <div style="background-color: #333; width: 100%; height: 10px; border-radius: 5px; margin-left: 10px; position: relative;">
-                           <div style="background-color: #fcbf24; width: 30%; height: 100%; border-radius: 5px;"></div>
+                            <div style="background-color: #fcbf24; width: 30%; height: 100%; border-radius: 5px;"></div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Dropdown Menus -->
-               <div class="dropdowns" style="color: white; font-size: 18px; text-align: left;">
-                  <button id="submit-nutrition-btn" style="margin-left: 10px; background-color: #fcbf24; padding: 10px;">Submit Nutrition</button>
-                  <label for="breakfast-dropdown">Breakfast</label>
-                  <select id="breakfast-dropdown" class="dropdown">
-                     <option value="" disabled selected>Select an option</option>
-                     <option value="Smoothie">Smoothie</option>
-                     <option value="Oatmeal">Oatmeal</option>
-                     <option value="Eggs">Eggs</option>
-                  </select>
-                  <input type="text" id="newBreakfast" placeholder="Add new breakfast..." />
-                  <button onclick="addNewOption('breakfast-dropdown', 'newBreakfast')">Add</button>
-                  <label for="lunch-dropdown" style="margin-top: 20px;">Lunch</label>
-                  <select id="lunch-dropdown" class="dropdown">
-                     <option value="" disabled selected>Select an option</option>
-                     <option value="Salad">Salad</option>
-                     <option value="Chicken Wrap">Chicken Wrap</option>
-                     <option value="Rice & Beans">Rice & Beans</option>
-                  </select>
-                  <input type="text" id="newLunch" placeholder="Add new lunch..." />
-                  <button onclick="addNewOption('lunch-dropdown', 'newLunch')">Add</button>
-                  <label for="dinner-dropdown" style="margin-top: 20px;">Dinner</label>
-                  <select id="dinner-dropdown" class="dropdown">
-                     <option value="" disabled selected>Select an option</option>
-                     <option value="Grilled Salmon">Grilled Salmon</option>
-                     <option value="Steak">Steak</option>
-                     <option value="Vegetable Stir Fry">Vegetable Stir Fry</option>
-                  </select>
-                  <input type="text" id="newDinner" placeholder="Add new dinner..." />
-                  <button onclick="addNewOption('dinner-dropdown', 'newDinner')">Add</button>
-                  <label for="snack-dropdown" style="margin-top: 20px;">Snack</label>
-                  <select id="snack-dropdown" class="dropdown">
-                     <option value="" disabled selected>Select an option</option>
-                     <option value="Fruit">Fruit</option>
-                     <option value="Nuts">Nuts</option>
-                     <option value="Protein Bar">Protein Bar</option>
-                  </select>
-                  <input type="text" id="newSnack" placeholder="Add new snack..." />
-                  <button onclick="addNewOption('snack-dropdown', 'newSnack')">Add</button>
-               </div>
+                    </div>
+                </div>
             </div>
-            <!-- Tab 4: Profile -->
-            <div id="Profile" class="tabcontent" style="position: relative;">
-               <!-- Settings Icon in the Top Right Corner -->
-               <img src="settings.png" alt="Settings" id="settingsIcon" style="position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; cursor: pointer;">
-               <div class="form-popup" id="preliminaryModal">
-                  <form id="preliminaryForm" class="form-container">
-                     <h2>Preliminary Information</h2>
-                     <label for="name">Name:</label>
-                     <input type="text" id="name" placeholder="Enter your name" required>
-                     <label for="age">Age:</label>
-                     <input type="number" id="age" placeholder="Enter your age" required>
-                     <label for="height">Height (cm):</label>
-                     <input type="number" id="height" placeholder="Enter your height in cm" required>
-                     <label for="weight">Weight (kg):</label>
-                     <input type="number" id="weight" placeholder="Enter your weight in kg" required>
-                     <label for="fitness-goal">Fitness Goal:</label>
-                     <select id="fitness-goal" required>
-                        <option value="" disabled selected>Select a goal...</option>
-                        <option value="Strength & Muscle Building">Strength & Muscle Building</option>
-                        <option value="Endurance & Stamina">Endurance & Stamina</option>
-                        <option value="Flexibility & Mobility">Flexibility & Mobility</option>
-                        <option value="Weight Loss & Toning">Weight Loss & Toning</option>
-                     </select>
-                     <button type="submit" class="btn">Submit</button>
-                     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                  </form>
-               </div>
-               <!-- Centered Header -->
-               <h1 style="text-align: center; font-size: 24px; margin-top: 20px;">Hi Bharat!</h1>
-               <!-- Centered Profile Picture Below Header -->
-               <div style="display: flex; justify-content: center; margin-top: 10px;">
-                  <img src="BITMOJI.png" alt="Profile Picture" id="img" width="80" style="border-radius: 50%; cursor: pointer;">
-               </div>
-               <!-- Row with Weight, Height, and Age -->
-               <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-                  <div class="info-box" id="weight-box"><strong>Weight:</strong> 70 kg</div>
-                  <div class="info-box" id="height-box"><strong>Height:</strong> 180 cm</div>
-                  <div class="info-box" id="age-box"><strong>Age:</strong> 25</div>
-               </div>
-               <!-- Bubbles with Large Number and Small Text -->
-               <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-                  <div class="bubble">
-                     <div class="large-number">1</div>
-                     <div class="small-text">workout done</div>
-                  </div>
-                  <div class="bubble">
-                     <div class="large-number">72</div>
-                     <div class="small-text">grams of protein</div>
-                  </div>
-                  
-               </div>
-               <!-- Table Image at the Bottom -->
-               <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
-                  <div style="text-align: left; max-width: 600px; margin: 0 auto;">
-                     <h2 style="margin-bottom: 5px; font-size: 24px;">Average 1,598 Cal</h2>
-                     <h4 style="margin-top: 0; font-size: 18px; color: gray;">Oct 27 - Nov 2, 2024</h4>
-                  </div>
-                  <img src="calgraph.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px; cursor: pointer; transition: border-color 0.3s;"
-                     onclick="openTab('ToDo', this)" class="image-tint">
-                  <button onclick="shareToInstagram()" class="share-instagram-btn">
-                  <img src="images/instagram.jpg" alt="Instagram" style="width: 30px; height: 30px;">
-                  </button>
-               </div>
-               <!-- Hidden Text Displayed on Image Click -->
-               <div id="txt" style="display: none; margin-top: 10px;">
-                  <button id="close" style="background: none; border: none; font-size: 18px; color: white; cursor: pointer;">&times;</button>
-               </div>
-               <script>
-                  const pic = document.getElementById('img');
-                  const text = document.getElementById('txt');
-                  const close = document.getElementById('close');
-                  
-                  pic.addEventListener('click', () => {
-                      text.style.display = 'block';
-                  });
-                  
-                  close.addEventListener('click', () => {
-                      text.style.display = 'none';
-                  });
-                  
-                  
-                  //form stuff scripts
-                     // Get references to necessary elements
-                  const settingsIcon = document.getElementById('settingsIcon');
-                  const formPopup = document.getElementById('preliminaryModal');
-                  const formContainer = document.getElementById('preliminaryForm');
-                  
-                  // Function to open the form modal when the settings icon is clicked
-                  settingsIcon.addEventListener('click', () => {
-                  formPopup.style.display = "block";
-                  });
-                  
-                  // Function to close the form modal
-                  function closeForm() {
-                  formPopup.style.display = "none";
-                  }
-                  
-                  // Handle form submission
-                  
-                  function addNewOption(dropdownId, inputId) {
-                  const dropdown = document.getElementById(dropdownId);
-                  const newValue = document.getElementById(inputId).value.trim();
-                  
-                  
-                  if (newValue !== "") {
-                  const newOption = document.createElement("option");
-                  newOption.text = newValue;
-                  newOption.value = newValue;
-                  dropdown.add(newOption); // Add the new option to the dropdown
-                  
-                  // Optionally, select the new option right away
-                  dropdown.value = newValue;
-                  
-                  
-                  // Clear the input field after adding
-                  document.getElementById(inputId).value = '';
-                  } else {
-                  alert("Please enter a value to add.");
-                  }
-                  }
-                  document.getElementById("submit-nutrition-btn").addEventListener("click", function() {
-                  // Generate a random number between 0 and 150
-                  const randomProtein = Math.floor(Math.random() * 151); // 0 to 150 inclusive
-                  
-                  // Update the profile bubble for grams of protein
-                  document.querySelector("#Profile .bubble:nth-child(2) .large-number").textContent = randomProtein;
-                  });
-               </script>
+        
+            <!-- Dropdown Menus with Pop-up Keyboard for Breakfast Input -->
+            <div class="dropdowns" style="color: white; font-size: 18px; text-align: left;">
+                <button id="submit-nutrition-btn" style="margin-left: 10px; background-color: #fcbf24; padding: 10px;">Submit Nutrition</button>
+                
+                <label for="breakfast-dropdown">Breakfast</label>
+                <select id="breakfast-dropdown" class="dropdown">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Smoothie">Smoothie</option>
+                    <option value="Oatmeal">Oatmeal</option>
+                    <option value="Eggs">Eggs</option>
+                </select>
+                
+                <!-- Add New Breakfast input with isolated pop-up keyboard functionality -->
+                <input type="text" id="newBreakfast" placeholder="Add new breakfast..." />
+                <button onclick="addNewOption('breakfast-dropdown', 'newBreakfast')">Add</button>
+                
+                <!-- Additional Dropdowns for Lunch, Dinner, Snack -->
+                <label for="lunch-dropdown" style="margin-top: 20px;">Lunch</label>
+                <select id="lunch-dropdown" class="dropdown">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Chicken Wrap">Chicken Wrap</option>
+                    <option value="Rice & Beans">Rice & Beans</option>
+                </select>
+                <input type="text" id="newLunch" placeholder="Add new lunch...">
+                <button onclick="addNewOption('lunch-dropdown', 'newLunch')">Add</button>
+        
+                <label for="dinner-dropdown" style="margin-top: 20px;">Dinner</label>
+                <select id="dinner-dropdown" class="dropdown">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Grilled Salmon">Grilled Salmon</option>
+                    <option value="Steak">Steak</option>
+                    <option value="Vegetable Stir Fry">Vegetable Stir Fry</option>
+                </select>
+                <input type="text" id="newDinner" placeholder="Add new dinner...">
+                <button onclick="addNewOption('dinner-dropdown', 'newDinner')">Add</button>
+        
+                <label for="snack-dropdown" style="margin-top: 20px;">Snack</label>
+                <select id="snack-dropdown" class="dropdown">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Fruit">Fruit</option>
+                    <option value="Nuts">Nuts</option>
+                    <option value="Protein Bar">Protein Bar</option>
+                </select>
+                <input type="text" id="newSnack" placeholder="Add new snack...">
+                <button onclick="addNewOption('snack-dropdown', 'newSnack')">Add</button>
             </div>
-            <!-- Tab 5: Exercise -->
-            <div id="Exercise" class="tabcontent">
-               <!-- Header for Today's Workout -->
-               <div class="header">
-                  <h1>Today's Workout</h1>
-                  <!-- Timer Display -->
-                  <div class="timer">
-                     <span id="timerDisplay">00:00:00</span>
-                     <button onclick="startTimer()" id="timerControlBtn" class="timer-btn">Start</button>
-                     <button onclick="resetTimer()" class="timer-btn">Reset</button> <!-- Reset Button -->
-                  </div>
-               </div>
-               <!-- Workout Cards -->
-               <div class="workout-cards">
-                  <div class="workout-card" onclick="openExerciseImage('images/bench-press.jpg')">
-                     <p id="workout1">2 x 10 Bench Press</p>
-                  </div>
-                  <div class="workout-card" onclick="openExerciseImage('images/deadlift.jpg')">
-                     <p id="workout2">4 x 10 Deadlift</p>
-                  </div>
-                  <div class="workout-card" onclick="openExerciseImage('images/squats.jpg')">
-                     <p id="workout3">4 x 10 Squats</p>
-                  </div>
-                  <div class="workout-card" onclick="openExerciseImage('images/bicep-curls.jpg')">
-                     <p id="workout4">3 x 15 Bicep Curls</p>
-                  </div>
-               </div>
-               <!-- Workout Summary Section -->
-               <div class="workout-summary">
-                  <h2>Summary</h2>
-                  <div class="muscle-images">
-                     <img src="images/muscles.jpg" alt="Body Image" class="muscle-image"> <!-- REPLACE WITH ACTUAL IMAGE PATH -->
-                  </div>
-                  <ul class="summary-list">
-                     <li><strong>Areas Targeted:</strong> Legs</li>
-                     <li><strong>Duration:</strong> 50 mins</li>
-                     <li><strong>Calories Burned:</strong> 350 Kcal</li>
-                  </ul>
-               </div>
-            </div>
-            <!-- Continuation of the first original link. https://www.w3schools.com/howto/howto_js_tab_header.asp -->
-            <!-- Buttons -->
-            <div class="tab-buttons">
-               <button class="tablink" onclick="openTab('Text', this)" id="defaultOpen">Home</button>
-               <button class="tablink" onclick="openTab('Choices', this)">Mind</button>
-               <button class="tablink" onclick="openTab('ToDo', this)">Nutrition</button>
-               <button class="tablink" onclick="openTab('Profile', this)">Profile</button>
-               <button class="tablink" onclick="openTab('Exercise', this)">Exercise</button>
-            </div>
-         </div>
+        </div>
+        
+        <!-- Keyboard Pop-up Modal for Breakfast Input Only -->
+        <div id="keyboardModal" style="display: none; position: fixed; top: 80%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 8px; z-index: 1000;">
+            <img src="pop_up_keyboard.jpg" alt="Keyboard" style="width: 300px; height: 150px;"> 
+            <button onclick="hideKeyboard()" style="margin-top: 10px; display: block; background-color: white; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Close Keyboard</button>
+        </div>
+        
+        <script>
+            // Isolated keyboard display functionality for "Add new breakfast" input
+            const newBreakfastInput = document.getElementById('newBreakfast');
+        
+            // Show keyboard pop-up when input is focused
+            newBreakfastInput.addEventListener('focus', function() {
+                document.getElementById('keyboardModal').style.display = 'block';
+            });
+        
+            // Hide keyboard pop-up when input loses focus
+            newBreakfastInput.addEventListener('blur', function() {
+                hideKeyboard();
+            });
+        
+            // Function to hide the keyboard pop-up
+            function hideKeyboard() {
+                document.getElementById('keyboardModal').style.display = 'none';
+            }
+        </script>
+        
 
-         <!-- Add the Image Overlay for Exercise Explanation right after 'everything' div -->
+
+
+
+
+
+           <!-- Tab 4: Profile -->
+           <div id="Profile" class="tabcontent" style="position: relative;">
+              <!-- Settings Icon in the Top Right Corner -->
+              <img src="settings.png" alt="Settings" id="settingsIcon" style="position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; cursor: pointer;">
+              <div class="form-popup" id="preliminaryModal">
+                <form id="preliminaryForm" class="form-container">
+                    <h2>Preliminary Information</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" placeholder="Enter your age" required>
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" placeholder="Enter your height in cm" required>
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" placeholder="Enter your weight in kg" required>
+                    <label for="fitness-goal">Fitness Goal:</label>
+                    <select id="fitness-goal" required>
+                       <option value="" disabled selected>Select a goal...</option>
+                       <option value="Strength & Muscle Building">Strength & Muscle Building</option>
+                       <option value="Endurance & Stamina">Endurance & Stamina</option>
+                       <option value="Flexibility & Mobility">Flexibility & Mobility</option>
+                       <option value="Weight Loss & Toning">Weight Loss & Toning</option>
+                    </select>
+                    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+</form>
+              </div>
+
+              <script>
+                document.getElementById('preliminaryForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+            
+                    // Get the name input value
+                    const name = document.getElementById('name').value.trim();
+                    
+                    // Store the name in localStorage
+                    if (name) {
+                        localStorage.setItem('userName', name);
+                    }
+            
+                    // Update greeting on the profile page
+                    updateProfileGreeting();
+                    closeForm();
+                });
+            
+                function updateProfileGreeting() {
+                    const name = localStorage.getItem('userName') || "there";
+                    document.querySelector('#Profile h1').textContent = `Hi ${name}!`;
+                }
+            
+                // Call updateProfileGreeting when the profile page loads
+                window.addEventListener('load', updateProfileGreeting);
+            </script>
+
+
+
+              <!-- Centered Header -->
+              <h1 style="text-align: center; font-size: 24px; margin-top: 20px;">Hi Bharat!</h1>
+             
+              <div style="display: flex; justify-content: center; margin-top: 10px;">
+                 <img src="BITMOJI.png" alt="Profile Picture" id="img" width="80" style="border-radius: 50%; cursor: pointer;">
+              </div>
+              <!-- Row with Weight, Height, and Age -->
+              <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                 <div class="info-box" id="weight-box"><strong>Weight:</strong> 70 kg</div>
+                 <div class="info-box" id="height-box"><strong>Height:</strong> 180 cm</div>
+                 <div class="info-box" id="age-box"><strong>Age:</strong> 25</div>
+              </div>
+             
+              <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                 <div class="bubble">
+                    <div class="large-number">1</div>
+                    <div class="small-text">workout done</div>
+                 </div>
+                 <div class="bubble">
+                    <div class="large-number">72</div>
+                    <div class="small-text">grams of protein</div>
+                 </div>
+                
+              </div>
+              <!-- Table Image at the Bottom -->
+              <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
+                 <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <h2 style="margin-bottom: 5px; font-size: 24px;">Average 1,598 Cal</h2>
+                    <h4 style="margin-top: 0; font-size: 18px; color: gray;">Oct 27 - Nov 2, 2024</h4>
+                 </div>
+                 <img src="calgraph.png" alt="Table Data" style="width: 100%; max-width: 600px; border-radius: 10px; cursor: pointer; transition: border-color 0.3s;"
+                    onclick="openTab('ToDo', this)" class="image-tint">
+                 <button onclick="shareToInstagram()" class="share-instagram-btn">
+                 <img src="images/instagram.jpg" alt="Instagram" style="width: 30px; height: 30px;">
+                 </button>
+              </div>
+              
+              <div id="txt" style="display: none; margin-top: 10px;">
+                 <button id="close" style="background: none; border: none; font-size: 18px; color: white; cursor: pointer;">&times;</button>
+              </div>
+              <script>
+                 const pic = document.getElementById('img');
+                 const text = document.getElementById('txt');
+                 const close = document.getElementById('close');
+                
+                 pic.addEventListener('click', () => {
+                     text.style.display = 'block';
+                 });
+                
+                 close.addEventListener('click', () => {
+                     text.style.display = 'none';
+                 });
+                
+                
+                 //form stuff scripts
+                    // Get references to necessary elements
+                 const settingsIcon = document.getElementById('settingsIcon');
+                 const formPopup = document.getElementById('preliminaryModal');
+                 const formContainer = document.getElementById('preliminaryForm');
+                
+                 // Function to open the form modal when the settings icon is clicked
+                 settingsIcon.addEventListener('click', () => {
+                 formPopup.style.display = "block";
+                 });
+                
+                 // Function to close the form modal
+                 function closeForm() {
+                 formPopup.style.display = "none";
+                 }
+                
+                 // Handle form submission
+                
+                 function addNewOption(dropdownId, inputId) {
+                 const dropdown = document.getElementById(dropdownId);
+                 const newValue = document.getElementById(inputId).value.trim();
+                
+                
+                 if (newValue !== "") {
+                 const newOption = document.createElement("option");
+                 newOption.text = newValue;
+                 newOption.value = newValue;
+                 dropdown.add(newOption); 
+                
+                 // Optionally, select the new option right away
+                 dropdown.value = newValue;
+                
+                
+                 // Clear the input field after adding
+                 document.getElementById(inputId).value = '';
+                 } else {
+                 alert("Please enter a value to add.");
+                 }
+                 }
+                 document.getElementById("submit-nutrition-btn").addEventListener("click", function() {
+            
+                 const randomProtein = Math.floor(Math.random() * 151); 
+                
+                 
+                 document.querySelector("#Profile .bubble:nth-child(2) .large-number").textContent = randomProtein;
+                 });
+              </script>
+           </div>
+
+
+
+
+
+           <!-- Tab 5: Exercise -->
+           <div id="Exercise" class="tabcontent">
+              <!-- Header for Today's Workout -->
+              <div class="header">
+                 <h1>Today's Workout</h1>
+             
+                 <div class="timer">
+                    <span id="timerDisplay">00:00:00</span>
+                    <button onclick="startTimer()" id="timerControlBtn" class="timer-btn">Start</button>
+                    <button onclick="resetTimer()" class="timer-btn">Reset</button> 
+                 </div>
+              </div>
+              <!-- Workout Cards -->
+              <div class="workout-cards">
+                 <div class="workout-card" onclick="openExerciseImage('images/bench-press.jpg')">
+                    <p id="workout1">2 x 10 Bench Press</p>
+                 </div>
+                 <div class="workout-card" onclick="openExerciseImage('images/deadlift.jpg')">
+                    <p id="workout2">4 x 10 Deadlift</p>
+                 </div>
+                 <div class="workout-card" onclick="openExerciseImage('images/squats.jpg')">
+                    <p id="workout3">4 x 10 Squats</p>
+                 </div>
+                 <div class="workout-card" onclick="openExerciseImage('images/bicep-curls.jpg')">
+                    <p id="workout4">3 x 15 Bicep Curls</p>
+                 </div>
+              </div>
+              <!-- Workout Summary Section -->
+              <div class="workout-summary">
+                 <h2>Summary</h2>
+                 <div class="muscle-images">
+                    <img src="images/muscles.jpg" alt="Body Image" class="muscle-image"> 
+                 </div>
+                 <ul class="summary-list">
+                    <li><strong>Areas Targeted:</strong> Legs</li>
+                    <li><strong>Duration:</strong> 50 mins</li>
+                    <li><strong>Calories Burned:</strong> 350 Kcal</li>
+                 </ul>
+              </div>
+           </div>
+           <!-- Continuation of the first original link. https://www.w3schools.com/howto/howto_js_tab_header.asp -->
+           <!-- Buttons -->
+           <div class="tab-buttons">
+              <button class="tablink" onclick="openTab('Text', this)" id="defaultOpen">Home</button>
+              <button class="tablink" onclick="openTab('Choices', this)">Mind</button>
+              <button class="tablink" onclick="openTab('ToDo', this)">Nutrition</button>
+              <button class="tablink" onclick="openTab('Profile', this)">Profile</button>
+              <button class="tablink" onclick="openTab('Exercise', this)">Exercise</button>
+           </div>
+        </div>
+
+
+        <!-- Add the Image Overlay for Exercise Explanation right after 'everything' div -->
 <div id="exerciseImageOverlay" class="overlay">
-   <span class="close" onclick="closeExerciseImage()">&times;</span>
-   <img id="exerciseImage" class="overlay-content" src="" alt="Exercise Explanation">
+  <span class="close" onclick="closeExerciseImage()">&times;</span>
+  <img id="exerciseImage" class="overlay-content" src="" alt="Exercise Explanation">
 </div>
-      </div>
-      <script>
-         const workoutPlans = {
-           "Strength & Muscle Building": [
-               "2 x 10 Bench Press",
-               "4 x 10 Deadlift",
-               "4 x 10 Squats",
-               "3 x 15 Bicep Curls"
-           ],
-           "Endurance & Stamina": [
-               "40 min Run",
-               "3 x 20 Mountain Climbers",
-               "3 x 15 Burpees",
-               "4 x 15 Jump Squats"
-           ],
-           "Flexibility & Mobility": [
-               "20 min Yoga Flow",
-               "3 x 10 Shoulder Stretches",
-               "3 x 10 Hamstring Stretches",
-               "3 x 10 Hip Flexor Stretches"
-           ],
-           "Weight Loss & Toning": [
-               "30 min HIIT Cardio",
-               "4 x 15 Push-Ups",
-               "4 x 15 Bodyweight Squats",
-               "3 x 20 Bicycle Crunches"
-           ]
-         };
-         
-         function updateWorkoutText(goal) {
-         console.log("Updating workout text for goal:", goal);  // Debug: Check which goal is selected
-         
-         // Get the selected workout plan
-         const selectedWorkouts = workoutPlans[goal] || ["", "", "", ""];
-         console.log("Selected Workouts:", selectedWorkouts);  // Debug: Check selected workouts
-         
-         // Update each workout card's text based on the selected workout plan
-         document.getElementById("workout1").innerText = selectedWorkouts[0] || "";
-         document.getElementById("workout2").innerText = selectedWorkouts[1] || "";
-         document.getElementById("workout3").innerText = selectedWorkouts[2] || "";
-         document.getElementById("workout4").innerText = selectedWorkouts[3] || "";
-         
-         // Debug: Log the updated text for verification
-         console.log("Updated workout1 text:", document.getElementById("workout1").innerText);
-         console.log("Updated workout2 text:", document.getElementById("workout2").innerText);
-         console.log("Updated workout3 text:", document.getElementById("workout3").innerText);
-         console.log("Updated workout4 text:", document.getElementById("workout4").innerText);
-         }
-         
-         
-         
-         formContainer.addEventListener('submit', function(event) {
-         event.preventDefault();
-         
-         // Get form input values
-         const name = document.getElementById('name').value;
-         const age = document.getElementById('age').value;
-         const height = document.getElementById('height').value;
-         const weight = document.getElementById('weight').value;
-         const fitnessGoal = document.getElementById('fitness-goal').value;
-         
-         // Update the displayed information in the profile
-         document.querySelector('#Profile h1').innerText = `Hi ${name}!`;
-         document.getElementById('weight-box').innerText = `Weight: ${weight} kg`;
-         document.getElementById('height-box').innerText = `Height: ${height} cm`;
-         document.getElementById('age-box').innerText = `Age: ${age}`;
-         
-         // Update workout cards based on the selected goal
-         updateWorkoutText(fitnessGoal);
-         // Close the form after submission
-         closeForm();
-         });
-         
-         
-         document.addEventListener('DOMContentLoaded', function() {
-         console.log("DOM fully loaded and parsed. Setting default workout plan.");
-         updateWorkoutText("Strength & Muscle Building");
-         });  
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-           function openTab(tabName, elmnt) {
-           var i, tabcontent, tablinks;
-           tabcontent = document.getElementsByClassName("tabcontent");
-           for (i = 0; i < tabcontent.length; i++) {
-               tabcontent[i].style.display = "none";
-           }
-           tablinks = document.getElementsByClassName("tablink");
-           for (i = 0; i < tablinks.length; i++) {
-               tablinks[i].classList.remove("active"); 
-           }
-           document.getElementById(tabName).style.display = "block";
-           elmnt.classList.add("active"); 
-         }
-         
-         
-           document.getElementById("defaultOpen").click();
-         
-         
-           function displayChoice() {
-               const hatColor1 = document.querySelector('input[name="hatColor1"]:checked').value;
-               const hatColor2 = document.getElementById("hatColor2").value;
-               document.getElementById("choiceResult").innerText = `Hat color #1: ${hatColor1}, Hat color #2: ${hatColor2}`;
-           }
-         
-         
-         
-         
-           function addItem() {
-               const newItemText = document.getElementById("newItem").value;
-               if (newItemText.trim() !== "") {
-                   const li = document.createElement("li");
-                   li.innerHTML = `<span>${newItemText}</span> <button onclick="removeItem(this)">×</button>`;
-                   li.querySelector("span").onclick = function () {
-                       this.classList.toggle("completed");
-                   };
-                   document.getElementById("todoList").appendChild(li);
-                   document.getElementById("newItem").value = '';
-               }
-           }
-         
-         
-         
-         
-           function removeItem(element) {
-               element.parentElement.remove();
-           }
-         
-         
-         
-         
-           function addGoal() {
-         const newGoalText = document.getElementById("newGoal").value;
-         const goalDate = document.getElementById("goalDate").value;
-         const goalTime = document.getElementById("goalTime").value;
-         
-         if (newGoalText.trim() !== "") {
-         const li = document.createElement("li");
-         li.innerHTML = `
-            <span>${newGoalText} ~~~~~ ${goalDate} ${goalTime}</span>
-            <button onclick="removeGoal(this)">×</button>
-         `;
-         document.getElementById("goals-list").appendChild(li);
-         
-         document.getElementById("newGoal").value = '';
-         document.getElementById("goalDate").value = '';
-         document.getElementById("goalTime").value = '';
-         }
-         }
-         
-         
-         
-         
-           function removeGoal(element) {
-               element.parentElement.remove();
-           }
-         
-           function editNutrition() {
-         document.getElementById("defaultOpen").click(); 
-         
-         // Directly show the Nutrition tab
-         openTab('ToDo', document.querySelector('.tablink[onclick*="ToDo"]'));
-         
-         // Scroll to the top in case the form is off-screen
-         document.getElementById("ToDo").scrollTop = 0;
-         }
-         
-         function shareToInstagram() {
-         const toast = document.createElement("div");
-         toast.className = "instagram-toast";
-         toast.innerText = "Shared to Instagram!";
-         document.body.appendChild(toast);
-         
-         // Remove the toast after 3 seconds
-         setTimeout(() => {
-         toast.remove();
-         }, 3000);
-         }
-         
-         let timerInterval;
-         let elapsedTime = 0;
-         
-         function startTimer() {
-         const button = document.getElementById("timerControlBtn");
-         
-         if (button.textContent === "Start") {
-         button.textContent = "Pause";
-         timerInterval = setInterval(() => {
-         elapsedTime += 1;
-         updateTimerDisplay();
-         }, 1000);
-         } else if (button.textContent === "Pause") {
-         button.textContent = "Resume";
-         clearInterval(timerInterval);
-         } else {
-         button.textContent = "Pause";
-         timerInterval = setInterval(() => {
-         elapsedTime += 1;
-         updateTimerDisplay();
-         }, 1000);
-         }
-         }
-         
-         function updateTimerDisplay() {
-         const hours = Math.floor(elapsedTime / 3600).toString().padStart(2, '0');
-         const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
-         const seconds = (elapsedTime % 60).toString().padStart(2, '0');
-         document.getElementById("timerDisplay").textContent = `${hours}:${minutes}:${seconds}`;
-         }
-         
-         function resetTimer() {
-         clearInterval(timerInterval);
-         elapsedTime = 0;
-         updateTimerDisplay();
-         document.getElementById("timerControlBtn").textContent = "Start";
-         }
-         
-         // Function to open the overlay with the exercise image
-         function openExerciseImage(imagePath) {
-         const overlay = document.getElementById("exerciseImageOverlay");
-         const img = document.getElementById("exerciseImage");
-         img.src = imagePath;
-         overlay.style.display = "block";
-         }
-         
-         // Function to close the overlay
-         function closeExerciseImage() {
-         const overlay = document.getElementById("exerciseImageOverlay");
-         overlay.style.display = "none";
-         }
-      </script>
-   </body>
+     </div>
+     <script>
+        const workoutPlans = {
+          "Strength & Muscle Building": [
+              "2 x 10 Bench Press",
+              "4 x 10 Deadlift",
+              "4 x 10 Squats",
+              "3 x 15 Bicep Curls"
+          ],
+          "Endurance & Stamina": [
+              "40 min Run",
+              "3 x 20 Mountain Climbers",
+              "3 x 15 Burpees",
+              "4 x 15 Jump Squats"
+          ],
+          "Flexibility & Mobility": [
+              "20 min Yoga Flow",
+              "3 x 10 Shoulder Stretches",
+              "3 x 10 Hamstring Stretches",
+              "3 x 10 Hip Flexor Stretches"
+          ],
+          "Weight Loss & Toning": [
+              "30 min HIIT Cardio",
+              "4 x 15 Push-Ups",
+              "4 x 15 Bodyweight Squats",
+              "3 x 20 Bicycle Crunches"
+          ]
+        };
+       
+        function updateWorkoutText(goal) {
+        console.log("Updating workout text for goal:", goal);  
+       
+
+        const selectedWorkouts = workoutPlans[goal] || ["", "", "", ""];
+        console.log("Selected Workouts:", selectedWorkouts);  
+       
+        // Update each workout card's text based on the selected workout plan
+        document.getElementById("workout1").innerText = selectedWorkouts[0] || "";
+        document.getElementById("workout2").innerText = selectedWorkouts[1] || "";
+        document.getElementById("workout3").innerText = selectedWorkouts[2] || "";
+        document.getElementById("workout4").innerText = selectedWorkouts[3] || "";
+       
+        // Debug: Log the updated text for verification
+        console.log("Updated workout1 text:", document.getElementById("workout1").innerText);
+        console.log("Updated workout2 text:", document.getElementById("workout2").innerText);
+        console.log("Updated workout3 text:", document.getElementById("workout3").innerText);
+        console.log("Updated workout4 text:", document.getElementById("workout4").innerText);
+        }
+       
+       
+       
+        formContainer.addEventListener('submit', function(event) {
+        event.preventDefault();
+       
+        // Get form input values
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const height = document.getElementById('height').value;
+        const weight = document.getElementById('weight').value;
+        const fitnessGoal = document.getElementById('fitness-goal').value;
+       
+        // Update the displayed information in the profile
+        document.querySelector('#Profile h1').innerText = `Hi ${name}!`;
+        document.getElementById('weight-box').innerText = `Weight: ${weight} kg`;
+        document.getElementById('height-box').innerText = `Height: ${height} cm`;
+        document.getElementById('age-box').innerText = `Age: ${age}`;
+       
+        // Update workout cards based on the selected goal
+        updateWorkoutText(fitnessGoal);
+        // Close the form after submission
+        closeForm();
+        });
+       
+       
+        document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM fully loaded and parsed. Setting default workout plan.");
+        updateWorkoutText("Strength & Muscle Building");
+        }); 
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+          function openTab(tabName, elmnt) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].classList.remove("active");
+          }
+          document.getElementById(tabName).style.display = "block";
+          elmnt.classList.add("active");
+        }
+       
+       
+          document.getElementById("defaultOpen").click();
+       
+       
+          function displayChoice() {
+              const hatColor1 = document.querySelector('input[name="hatColor1"]:checked').value;
+              const hatColor2 = document.getElementById("hatColor2").value;
+              document.getElementById("choiceResult").innerText = `Hat color #1: ${hatColor1}, Hat color #2: ${hatColor2}`;
+          }
+       
+       
+       
+       
+          function addItem() {
+              const newItemText = document.getElementById("newItem").value;
+              if (newItemText.trim() !== "") {
+                  const li = document.createElement("li");
+                  li.innerHTML = `<span>${newItemText}</span> <button onclick="removeItem(this)">×</button>`;
+                  li.querySelector("span").onclick = function () {
+                      this.classList.toggle("completed");
+                  };
+                  document.getElementById("todoList").appendChild(li);
+                  document.getElementById("newItem").value = '';
+              }
+          }
+       
+       
+       
+       
+          function removeItem(element) {
+              element.parentElement.remove();
+          }
+       
+       
+       
+       
+          function addGoal() {
+        const newGoalText = document.getElementById("newGoal").value;
+        const goalDate = document.getElementById("goalDate").value;
+        const goalTime = document.getElementById("goalTime").value;
+       
+        if (newGoalText.trim() !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `
+           <span>${newGoalText} ~~~~~ ${goalDate} ${goalTime}</span>
+           <button onclick="removeGoal(this)">×</button>
+        `;
+        document.getElementById("goals-list").appendChild(li);
+       
+        document.getElementById("newGoal").value = '';
+        document.getElementById("goalDate").value = '';
+        document.getElementById("goalTime").value = '';
+        }
+        }
+       
+       
+       
+       
+          function removeGoal(element) {
+              element.parentElement.remove();
+          }
+       
+          function editNutrition() {
+        document.getElementById("defaultOpen").click();
+       
+        // Directly show the Nutrition tab
+        openTab('ToDo', document.querySelector('.tablink[onclick*="ToDo"]'));
+       
+        // Scroll to the top in case the form is off-screen
+        document.getElementById("ToDo").scrollTop = 0;
+        }
+       
+        function shareToInstagram() {
+        const toast = document.createElement("div");
+        toast.className = "instagram-toast";
+        toast.innerText = "Shared to Instagram!";
+        document.body.appendChild(toast);
+       
+        // Remove the toast after 3 seconds
+        setTimeout(() => {
+        toast.remove();
+        }, 3000);
+        }
+       
+        let timerInterval;
+        let elapsedTime = 0;
+       
+        function startTimer() {
+        const button = document.getElementById("timerControlBtn");
+       
+        if (button.textContent === "Start") {
+        button.textContent = "Pause";
+        timerInterval = setInterval(() => {
+        elapsedTime += 1;
+        updateTimerDisplay();
+        }, 1000);
+        } else if (button.textContent === "Pause") {
+        button.textContent = "Resume";
+        clearInterval(timerInterval);
+        } else {
+        button.textContent = "Pause";
+        timerInterval = setInterval(() => {
+        elapsedTime += 1;
+        updateTimerDisplay();
+        }, 1000);
+        }
+        }
+       
+        function updateTimerDisplay() {
+        const hours = Math.floor(elapsedTime / 3600).toString().padStart(2, '0');
+        const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
+        const seconds = (elapsedTime % 60).toString().padStart(2, '0');
+        document.getElementById("timerDisplay").textContent = `${hours}:${minutes}:${seconds}`;
+        }
+       
+        function resetTimer() {
+        clearInterval(timerInterval);
+        elapsedTime = 0;
+        updateTimerDisplay();
+        document.getElementById("timerControlBtn").textContent = "Start";
+        }
+       
+        // Function to open the overlay with the exercise image
+        function openExerciseImage(imagePath) {
+        const overlay = document.getElementById("exerciseImageOverlay");
+        const img = document.getElementById("exerciseImage");
+        img.src = imagePath;
+        overlay.style.display = "block";
+        }
+       
+        // Function to close the overlay
+        function closeExerciseImage() {
+        const overlay = document.getElementById("exerciseImageOverlay");
+        overlay.style.display = "none";
+        }
+     </script>
+  </body>
 </html>
+
+
