@@ -210,8 +210,8 @@ body {
  /* Recipes Section with Images */
  .section.recipes h2 {
   font-size: 22px;
-  color: #ff6437; 
- }
+  color: #a463ff; /* Changed from red to purple for a more consistent theme */
+}
  .recipe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
