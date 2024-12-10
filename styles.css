@@ -574,14 +574,14 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-  background-color: white;
-  width: 300px; /* Set a fixed width */
+  z-index: 1000;
+  width: 300px; /* Or adjust based on your design */
+  background-color: #333; /* Match the app's theme */
+  color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
- }
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
  
  
  /* Optional: Styling for form elements */
@@ -766,4 +766,278 @@ body {
   font-size: 40px;
   color: #fff;
   cursor: pointer;
+}
+
+/* Modal Styling */
+.form-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333; /* Match app theme */
+  color: white; /* White text */
+  border: 1px solid #444; /* Subtle border */
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px; /* Adjust width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Input Fields */
+.form-container input,
+.form-container select {
+  width: 100%; /* Default to full width unless specified */
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  background-color: #444;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+/* Smaller Input Fields */
+input[type="number"] {
+  width: auto; /* Fit input size */
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.save-btn {
+  background-color: #a463ff; /* App's primary color */
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #8c52ff; /* Slightly darker on hover */
+}
+
+.close-btn {
+  background-color: #777; /* Softer gray */
+  color: white;
+}
+
+.close-btn:hover {
+  background-color: #999; /* Slightly lighter on hover */
+}
+
+/* Modal Styles Change 9:58 */
+.form-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333; /* Match app theme */
+  color: white; /* Bright text */
+  border: 1px solid #444; /* Subtle border */
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px; /* Adjusted width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-container label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fcbf24; /* Brighter yellow font */
+  margin-bottom: 5px;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%; /* Consistent width */
+  padding: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  background-color: #444;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center; /* Center-aligned text */
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 90%; /* Adjust input width */
+  margin: 0 auto; /* Center inputs horizontally */
+  display: block; /* Ensure block display for alignment */
+}
+
+.save-btn {
+  background-color: #a463ff; /* App's primary color */
+  color: white;
+  margin-top: 10px;
+}
+
+.close-btn {
+  background-color: #555; /* Softer gray */
+  color: white;
+  margin-top: 10px;
+}
+
+/* Modal Styles 10:08 */
+.form-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333; /* Match app theme */
+  color: white; /* Bright text */
+  border: 2px solid white; /* Add white border */
+  border-radius: 10px;
+  padding: 30px; /* Increased padding for spacing */
+  width: 320px; /* Slightly wider for better alignment */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column; /* Ensure stacked alignment */
+  gap: 15px; /* Space between fields */
+}
+
+.form-container label {
+  font-size: 16px;
+  font-weight: bold;
+  color: white; /* Changed to white for better contrast */
+}
+
+.form-container input,
+.form-container select {
+  width: 100%; /* Ensure consistent width */
+  padding: 10px; /* Increased padding for better UX */
+  margin-top: 5px; /* Space between label and input */
+  font-size: 14px;
+  background-color: #444; /* Consistent background */
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center;
+}
+
+input[type="number"],
+input[type="text"] {
+  display: block;
+}
+
+.save-btn,
+.close-btn {
+  margin-top: 15px; /* Space between buttons */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #a463ff; /* Bright color for Save */
+  color: white;
+}
+
+.close-btn {
+  background-color: #555; /* Neutral color for Close */
+  color: white;
+}
+
+
+
+/* Modal Styles 10:12 */
+.form-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333; /* Match app theme */
+  color: white; /* Bright text */
+  border: 2px solid white; /* Add white border */
+  border-radius: 10px;
+  padding: 20px; /* Reduced padding */
+  width: 300px; /* Adjusted width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column; /* Ensure stacked alignment */
+  gap: 10px; /* Reduced space between fields */
+}
+
+.form-container label {
+  font-size: 16px;
+  font-weight: bold;
+  color: white; /* White for better contrast */
+}
+
+.form-container input,
+.form-container select {
+  width: 100%; /* Ensure consistent width */
+  padding: 8px; /* Slightly reduced padding */
+  font-size: 14px;
+  background-color: #444; /* Consistent background */
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Buttons */
+.save-btn,
+.close-btn {
+  background-color: #555; /* Neutral background */
+  color: white;
+  padding: 8px 12px; /* Reduced padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1; /* Allow buttons to share equal space */
+}
+
+.save-btn {
+  background-color: #a463ff; /* Bright color for Save */
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between; /* Buttons side by side */
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px; /* Spacing above buttons */
+}
+
+
+/* Modal Heading 10:16 */
+.form-container h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: white; /* Change to white */
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Adjust Name Input Width */
+.form-container input#name {
+  width: 90%; /* Reduce width of Name field */
+  margin: 0 auto;
+}
+
+/* Remove Prompts for Age, Height, and Weight */
+input#age::placeholder,
+input#height::placeholder,
+input#weight::placeholder {
+  content: ''; /* Remove placeholder text */
 }

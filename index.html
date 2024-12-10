@@ -404,52 +404,56 @@
            <div id="Profile" class="tabcontent" style="position: relative;">
               <!-- Settings Icon in the Top Right Corner -->
               <img src="settings.png" alt="Settings" id="settingsIcon" style="position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; cursor: pointer;">
-              <div class="form-popup" id="preliminaryModal">
-                <form id="preliminaryForm" class="form-container">
-                    <h2>Preliminary Information</h2>
+              <div class="form-popup" id="personalInfoModal">
+                <form id="personalInfoForm" class="form-container">
+                    <h2>Personal Information</h2>
                     <label for="name">Name:</label>
                     <input type="text" id="name" placeholder="Enter your name" required>
                     <label for="age">Age:</label>
-                    <input type="number" id="age" placeholder="Enter your age" required>
+                    <input type="number" id="age" placeholder="Enter your age" required style="width: 60px;">
                     <label for="height">Height (cm):</label>
-                    <input type="number" id="height" placeholder="Enter your height in cm" required>
+                    <input type="number" id="height" placeholder="Enter your height in cm" required style="width: 100px;">
                     <label for="weight">Weight (kg):</label>
-                    <input type="number" id="weight" placeholder="Enter your weight in kg" required>
+                    <input type="number" id="weight" placeholder="Enter your weight in kg" required style="width: 100px;">
                     <label for="fitness-goal">Fitness Goal:</label>
                     <select id="fitness-goal" required>
-                       <option value="" disabled selected>Select a goal...</option>
-                       <option value="Strength & Muscle Building">Strength & Muscle Building</option>
-                       <option value="Endurance & Stamina">Endurance & Stamina</option>
-                       <option value="Flexibility & Mobility">Flexibility & Mobility</option>
-                       <option value="Weight Loss & Toning">Weight Loss & Toning</option>
+                        <option value="" disabled selected>Select a goal...</option>
+                        <option value="Strength & Muscle Building">Strength & Muscle Building</option>
+                        <option value="Endurance & Stamina">Endurance & Stamina</option>
+                        <option value="Flexibility & Mobility">Flexibility & Mobility</option>
+                        <option value="Weight Loss & Toning">Weight Loss & Toning</option>
                     </select>
-                    <button type="submit" class="btn">Submit</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-</form>
-              </div>
+                    <div class="button-row">
+                        <button type="submit" class="btn save-btn">Save</button>
+                        <button type="button" class="btn close-btn" onclick="closeForm()">Close</button>
+                      </div>
+                </form>
+            </div>
+            
 
               <script>
-                document.getElementById('preliminaryForm').addEventListener('submit', function(e) {
+                document.getElementById('personalInfoForm').addEventListener('submit', function (e) {
                     e.preventDefault();
-            
-                    // Get the name input value
+
                     const name = document.getElementById('name').value.trim();
-                    
-                    // Store the name in localStorage
-                    if (name) {
+                    if (name){
                         localStorage.setItem('userName', name);
                     }
-            
-                    // Update greeting on the profile page
+
+                    // Update the greeting on the Profile page
                     updateProfileGreeting();
                     closeForm();
                 });
-            
+
+                // Update the greeting on load
                 function updateProfileGreeting() {
                     const name = localStorage.getItem('userName') || "there";
                     document.querySelector('#Profile h1').textContent = `Hi ${name}!`;
                 }
-            
+
+                function closeForm() {
+                    document.getElementById('personalInfoModal').style.display = 'none';
+                }
                 // Call updateProfileGreeting when the profile page loads
                 window.addEventListener('load', updateProfileGreeting);
             </script>
@@ -512,19 +516,20 @@
                 
                  //form stuff scripts
                     // Get references to necessary elements
-                 const settingsIcon = document.getElementById('settingsIcon');
-                 const formPopup = document.getElementById('preliminaryModal');
-                 const formContainer = document.getElementById('preliminaryForm');
-                
-                 // Function to open the form modal when the settings icon is clicked
-                 settingsIcon.addEventListener('click', () => {
-                 formPopup.style.display = "block";
-                 });
-                
-                 // Function to close the form modal
-                 function closeForm() {
-                 formPopup.style.display = "none";
-                 }
+                document.addEventListener('DOMContentLoaded', function() {
+                const settingsIcon = document.getElementById('settingsIcon');
+                const formPopup = document.getElementById('personalInfoModal');
+
+                if (settingsIcon) {
+                    settingsIcon.addEventListener('click', () => {
+                    formPopup.style.display = "block";
+                    });
+                }
+
+                function closeForm() {
+                    formPopup.style.display = "none";
+                }
+            });
                 
                  // Handle form submission
                 
